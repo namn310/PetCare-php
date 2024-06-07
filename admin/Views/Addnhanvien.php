@@ -3,109 +3,73 @@
 $this->layoutPath = "Layout.php";
 ?>
 
-  <div class="pagetitle">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb" style="font-size: 22px;">
-        <li class="breadcrumb-item"><a href="Quanlynhanvien.php">Quản lý nhân viên</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Thêm nhân viên</li>
-      </ol>
-    </nav>
+<div class="pagetitle">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style="font-size: 22px;">
+      <li class="breadcrumb-item"><a href="index.php?controller=product">Quản lý nhân viên</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Thêm nhân viên</li>
+    </ol>
+  </nav>
 
-    <!-- End Page Title -->
-    <form id="AddForm" class="AddForm row mt-4" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
-      <div class="form-group col-md-4">
-        <label style="font-weight: bolder;" class="control-label">ID nhân viên</label>
-        <input class="form-control" id="idNV" onchange="checkID()" type="text">
-      </div>
-      <div class="form-group col-md-4">
-        <label style="font-weight: bolder;" class="control-label">Họ và tên</label>
-        <input class="form-control" id="nameNV" onclick="checkName()" onchange="checkName()" type="text">
-      </div>
-      <div class="form-group col-md-4">
-        <label style="font-weight: bolder;" class="control-label">Địa chỉ email</label>
-        <input class="form-control" id="emailNV" onclick="checkEmail()" onchange="checkEmail()" type="text">
-      </div>
-      <div class="form-group col-md-4">
-        <label style="font-weight: bolder;" class="control-label mt-3">Địa chỉ thường trú</label>
-        <input class="form-control" id="localNV" onclick="checkLocalNV()" onchange="checkLocalNV()" type="text">
-      </div>
-      <div class="form-group  col-md-4">
-        <label style="font-weight: bolder;" class="control-label mt-3">Số điện thoại</label>
-        <input class="form-control" id="phoneNV" onclick="checkPhone()" onchange="checkPhone()" type="text">
-      </div>
-      <div class="form-group col-md-4">
-        <label style="font-weight: bolder;" class="control-label mt-3">Ngày sinh</label>
-        <input class="form-control" id="dateNV" onclick="checkDateNV()" onchange="checkDateNV()" type="date">
-      </div>
-      <div class="form-group  col-md-3">
-        <label style="font-weight: bolder;" style="font-weight: bolder;" class="control-label mt-3">Nơi sinh</label>
-        <input class="form-control" id="noisinhNV" onclick="checkNoiSinhNV()" onchange="checkNoiSinhNV()" type="text">
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Số CMND/CCCD</label>
-        <input class="form-control" onclick="checkCMND()" onchange="checkCMND()" id="CMND" type="text">
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Ngày cấp</label>
-        <input class="form-control" id="date_cmnd" onclick="checkDateCMND()" onchange="checkDateCMND()" type="date">
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Nơi cấp</label>
-        <input class="form-control" id="local_cmnd" onclick="checkLocalCMND" onchange="checkLocalCMND()" type="text">
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Giới tính</label>
-        <select class="form-control" id="sex" onclick="checkSex()" onchange="checkSex()" id="exampleSelect2">
-          <option>Chọn giới tính</option>
-          <option>Nam</option>
-          <option>Nữ</option>
-          <option>Khác</option>
-        </select>
-      </div>
+  <!-- End Page Title -->
+  <form id="AddForm" method="post" class="AddForm row mt-4" action="<? echo $action ?>" enctype="multipart/form-data" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
 
-      <div class="form-group  col-md-3">
-        <label style="font-weight: bolder;" for="exampleSelect1" class="control-label mt-3">Chức vụ</label>
-        <select class="form-control" onclick="checkChucVuNV()" onchange="checkChucVuNV()" id="chucvuNV">
-          <option>Chọn chức vụ</option>
-          <option>Bán hàng</option>
-          <option>Tư vấn</option>
-          <option>Dịch vụ</option>
-          <option>Bác sĩ thú y</option>
-          <option>Spa-Grooming</option>
-        </select>
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Bằng cấp</label>
-        <select class="form-control" onclick="checkBangCapNV()" onchange="checkBangCapNV()" id="bangcapNV">
-          <option>Chọn bằng cấp</option>
-          <option>Tốt nghiệp Đại Học</option>
-          <option>Tốt nghiệp Cao Đẳng</option>
-          <option>Tốt nghiệp Phổ Thông</option>
-          <option>Chưa tốt nghiệp</option>
-          <option>Không bằng cấp</option>
-        </select>
-      </div>
-      <div class="form-group col-md-3">
-        <label style="font-weight: bolder;" class="control-label mt-3">Tình trạng hôn nhân</label>
-        <select class="form-control" onclick="checkHonNhanNV()" onchange="checkHonNhanNV()" id="honnhanNV">
-          <option>Chọn tình trạng hôn nhân</option>
-          <option>Độc thân</option>
-          <option>Đã kết hôn</option>
-          <option>Góa</option>
-          <option>Khác</option>
-        </select>
-      </div>
+    <div class="form-group col-md-4">
+      <label style="font-weight: bolder;" class="control-label">Họ và tên</label>
+      <input class="form-control" id="nameNV" name="nameNV" onclick="checkName()" onchange="checkName()" type="text">
+    </div>
+    <div class="form-group col-md-4">
+      <label style="font-weight: bolder;" class="control-label">Địa chỉ email</label>
+      <input class="form-control" id="emailNV" name="emailNV" onclick="checkEmail()" onchange="checkEmail()" type="text">
+    </div>
+    <div class="form-group col-md-4">
+      <label style="font-weight: bolder;" class="control-label mt-3">Địa chỉ thường trú</label>
+      <input class="form-control" id="localNV" name="localNV" onclick="checkLocalNV()" onchange="checkLocalNV()" type="text">
+    </div>
+    <div class="form-group  col-md-4">
+      <label style="font-weight: bolder;" class="control-label mt-3">Số điện thoại</label>
+      <input class="form-control" id="phoneNV" name="phoneNV" onclick="checkPhone()" onchange="checkPhone()" type="text">
+    </div>
 
-      <div class="form-group col-md-12">
-        <label style="font-weight: bolder;" class="control-label mt-3">Ảnh 3x4 nhân viên</label>
-        <input class="form-control" style="width:50%" type="file" onchange="checkImgNV()" onclick="checkImgNV()" id="uploadImgNV" name="ImageUpload">
+    <div class="form-group  col-md-3">
+      <label style="font-weight: bolder;" style="font-weight: bolder;" class="control-label mt-3">Ngày tháng năm sinh</label>
+      <input class="form-control" id="dateNV" name="dateNV" onclick="checkDateNV()" onchange="checkDateNV()" type="date">
+    </div>
+    <div class="form-group col-md-3">
+      <label style="font-weight: bolder;" class="control-label mt-3">Số CMND/CCCD</label>
+      <input class="form-control" onclick="checkCMND()" onchange="checkCMND()" name="CMND" id="CMND" type="text">
+    </div>
+
+    <div class="form-group col-md-3">
+      <label style="font-weight: bolder;" class="control-label mt-3">Giới tính</label>
+      <select class="form-control" name="sex" id="sex" onclick="checkSex()" onchange="checkSex()" id="exampleSelect2">
+        <option>Chọn giới tính</option>
+        <option>Nam</option>
+        <option>Nữ</option>
+        <option>Khác</option>
+      </select>
+    </div>
+
+    <div class="form-group  col-md-3">
+      <label style="font-weight: bolder;" for="exampleSelect1" class="control-label mt-3">Chức vụ</label>
+      <select class="form-control" onclick="checkChucVuNV()" onchange="checkChucVuNV()" name="chucvuNV" id="chucvuNV">
+        <option>Chọn chức vụ</option>
+        <option>Bán hàng</option>
+        <option>Tư vấn</option>
+        <option>Dịch vụ</option>
+        <option>Bác sĩ thú y</option>
+        <option>Spa-Grooming</option>
+      </select>
+    </div>
 
 
-
-      </div>
-      <input class="btn btn-success mt-4" type="button" href="" id="addbutton" onclick="checkFormAddNV()" style="width:10%" value="Thêm">
-    </form>
-  </div>
+    <div class="form-group col-md-12">
+      <label style="font-weight: bolder;" class="control-label mt-3">Ảnh 3x4 nhân viên</label>
+      <input class="form-control" style="width:50%" type="file" onchange="checkImgNV()" onclick="checkImgNV()" id="uploadImgNV" name="imgNV">
+    </div>
+    <button class="btn btn-success mt-4" type="submit" href="" id="addbutton" onclick="checkFormAddNV()" style="width:10%">Thêm</button>
+  </form>
+</div>
 
 
 
@@ -115,18 +79,19 @@ $this->layoutPath = "Layout.php";
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/php-email-form/validate.js"></script>
+<!-- Vendor JS Files -->
+<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/../Project-petcare-php/admin/assets/js/main.js"></script>
-<script src="/../Project-petcare-php/admin/assets/js/chart.js"></script>
+<script src="/../Project-petcare-php/assets/js/main.js"></script>
+<script src="/../Project-petcare-php/assets/js/chart.js"></script>
 <script type="text/javascript">
   const toastTrigger = document.getElementById('liveToastBtn')
   const toastLiveExample = document.getElementById('liveToast')
@@ -369,12 +334,11 @@ $this->layoutPath = "Layout.php";
   }
 
   function checkFormAddNV() {
-    if (checkBangCapNV() == false || checkCMND() == false || checkChucVuNV() == false || checkDateCMND() == false || checkDateNV() == false || checkEmail() == false || checkHonNhanNV() == false || checkID() == false || checkImgNV() == false || checkLocalCMND() == false || checkLocalNV() == false || checkName() == false || checkNoiSinhNV() == false || checkPhone() == false || checkSex() == false) {
+    if (checkCMND() == false || checkChucVuNV() == false || checkDateNV() == false || checkEmail() == false || checkImgNV() == false || checkLocalNV() == false || checkName() == false || checkPhone() == false || checkSex() == false) {
       alert("Vui lòng kiểm tra lại thông tin");
     } else {
-      alert("Đã thêm thành công");
-      document.getElementById("AddForm").reset();
-      location.reload();
+      confirm("Đã thêm thành công");
+
     }
   }
 </script>

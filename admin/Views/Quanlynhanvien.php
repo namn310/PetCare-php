@@ -13,7 +13,7 @@ $this->layoutPath = "Layout.php";
 
                     <div class="button-function d-flex justify-content-between mt-3 mb-4" style="width:70%">
 
-                        <button id="uploadfile" class="btn btn-success" type="button" title="Nhập" onclick="myFunction(this)"><a id="addnhanvien" href="Addnhanvien.php"><i class="fas fa-plus"></i>>
+                        <button id="uploadfile" class="btn btn-success" type="button" title="Nhập" onclick="myFunction(this)"><a id="addnhanvien" href="index.php?controller=nhanvien&action=create"><i class="fas fa-plus"></i>>
                                 Tạo mới nhân viên</a></button>
                         <!--
                                 <button id="uploadfile" class="btn btn-secondary btn-sm nhap-tu-file" type="button"
@@ -394,14 +394,14 @@ $this->layoutPath = "Layout.php";
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/php-email-form/validate.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
 <script src="/../Project-petcare-php/admin/js/main.js"></script>

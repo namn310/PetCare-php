@@ -10,26 +10,22 @@
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Latest compiled JavaScript -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Latest compiled JavaScript -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  <link href="/../Project-petcare-php/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link rel="stylesheet" href="\admin/Boostrap/css/bootstrap.css">
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main CSS File -->
-  <link href="/../Project-petcare-php/admin/assets/css/style.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/css/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -45,7 +41,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.php" class="logo d-flex align-items-center w-auto">
-                  <img src="/../Project-petcare-php/admin/assets/img/PetCARE.png" alt="">
+                  <img src="/../Project-petcare-php/assets/img/PetCARE.png" alt="">
                   <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
               </div><!-- End Logo -->
@@ -123,18 +119,17 @@
     </div>
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="/../Project-petcare-php/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/quill/quill.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
   <!-- Template Main JS File -->
   <script src="/../Project-petcare-php/admin/js/main.js"></script>
 

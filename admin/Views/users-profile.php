@@ -11,26 +11,22 @@
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Latest compiled JavaScript -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- Latest compiled JavaScript -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  <link href="/../Project-petcare-php/admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link rel="stylesheet" href="\admin/Boostrap/css/bootstrap.css">
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main CSS File -->
-  <link href="/../Project-petcare-php/admin/assets/css/style.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/admin/assets/css/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
+  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -42,7 +38,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
-        <img src="/../Project-petcare-php/admin/assets/img/PetCARE.png" alt="">
+        <img src="/../Project-petcare-php/assets/img/PetCARE.png" alt="">
         <span class="d-none d-lg-block">Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -157,7 +153,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="/../Project-petcare-php/admin/assets/img/avt.jpg" alt="" class="rounded-circle">
+                <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Tấn</h4>
                   <p>Nay xin nghỉ nhé</p>
@@ -171,7 +167,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="/../Project-petcare-php/admin/assets/img/avt2.png" alt="" class="rounded-circle">
+                <img src="/../Project-petcare-php/assets/img/avt2.png" alt="" class="rounded-circle">
                 <div>
                   <h4>Nam</h4>
                   <p>Tấn xin cho tôi nghỉ rồi nhé</p>
@@ -185,7 +181,7 @@
 
             <li class="message-item">
               <a href="#">
-                <img src="/../Project-petcare-php/admin/assets/img/avt.jpg" alt="" class="rounded-circle">
+                <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
                 <div>
                   <h4>Khang</h4>
                   <p>Đơn sa thải đồng chí Tấn đến đâu rồi</p>
@@ -208,7 +204,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="/../Project-petcare-php/admin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="/../Project-petcare-php/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">Bùi An Khang</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -243,7 +239,7 @@
 
 
 
-             <li>
+            <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Đăng xuất</span>
@@ -330,7 +326,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="/../Project-petcare-php/admin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <img src="/../Project-petcare-php/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
               <h2>Bùi An Khang</h2>
               <h3>Admin</h3>
               <div class="social-links mt-2">
@@ -454,18 +450,17 @@
 
   <!-- ======= Footer ======= -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="/../Project-petcare-php/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/echarts/echarts.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/quill/quill.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="/../Project-petcare-php/admin/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
   <!-- Template Main JS File -->
   <script src="/../Project-petcare-php/admin/js/main.js"></script>
 

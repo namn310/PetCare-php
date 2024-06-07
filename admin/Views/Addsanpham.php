@@ -126,74 +126,74 @@ $this->layoutPath = "Layout.php";
         if (checkCount() == false || checkDanhMuc() == false || checkGiaBanPro() == false || checkGiaVonPro() == false || checkID() == false || checkImg() == false || checkName() == false || checkTinhTrang() == false) {
             alert("Vui lòng kiểm tra lại thông tin sản phẩm");
         } else {
-            alert("Thêm thành công !");
-            location.reload();
+            confirm("Thêm thành công !");
+
         }
     }
 </script>
 
-    <div class="pagetitle">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="font-size: 22px;">
-                <li class="breadcrumb-item"><a href="index.php?controller=product">Quản lý sản phẩm</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Thêm sản phẩm</li>
-            </ol>
-        </nav>
-        <div style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
-            <!-- End Page Title -->
-            <form method="post" id="AddProForm" action="<?php echo $action ?>" enctype="multipart/form-data" class="row mt-4">
+<div class="pagetitle">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="font-size: 22px;">
+            <li class="breadcrumb-item"><a href="index.php?controller=product">Quản lý sản phẩm</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Thêm sản phẩm</li>
+        </ol>
+    </nav>
+    <div style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
+        <!-- End Page Title -->
+        <form method="post" id="AddProForm" action="<?php echo $action ?>" enctype="multipart/form-data" class="row mt-4">
 
-                <div class="form-group col-md-4">
-                    <label style="font-weight: bolder;" class="control-label">Tên sản phẩm</label>
-                    <input class="form-control" id="namepro" name="namepro" onclick="checkName()" onchange="checkName()" type="text" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label style="font-weight: bolder;" class="control-label">Số lượng</label>
-                    <input class="form-control" onclick="checkCount()" onchange="checkCount()" name="countpro" id="countpro" type="text" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label style="font-weight: bolder;" class="control-label mt-3">Giá bán(VND)</label>
-                    <input class="form-control" id="giabanpro" name="giabanpro" onclick="checkGiaBanPro()" onchange="checkGiaBanPro()" type="text" required>
-                </div>
-                <div class="form-group  col-md-4">
-                    <label style="font-weight: bolder;" class="control-label mt-3">Giá vốn(VND)</label>
-                    <input class="form-control" id="giavonpro" name="giavonpro" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <label style="font-weight: bolder;" class="control-label mt-3">Danh mục</label>
-                    <select class="form-control" onclick="checkDanhMuc()" onchange="checkDanhMuc()" id="danhmucAddpro" name="danhmucAddpro" required>
-                        <option>Chọn danh mục</option>
-                        <option>Pate</option>
-                        <option>Thức ăn hạt</option>
-                        <option>Thực phẩm chức năng</option>
-                        <option>Đồ chơi</option>
-                        <option>Dụng cụ</option>
-                        <option>Phụ kiện</option>
-                    </select>
-                </div>
+            <div class="form-group col-md-4">
+                <label style="font-weight: bolder;" class="control-label">Tên sản phẩm</label>
+                <input class="form-control" id="namepro" name="namepro" onclick="checkName()" onchange="checkName()" type="text" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label style="font-weight: bolder;" class="control-label">Số lượng</label>
+                <input class="form-control" onclick="checkCount()" onchange="checkCount()" name="countpro" id="countpro" type="text" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label style="font-weight: bolder;" class="control-label mt-3">Giá bán(VND)</label>
+                <input class="form-control" id="giabanpro" name="giabanpro" onclick="checkGiaBanPro()" onchange="checkGiaBanPro()" type="text" required>
+            </div>
+            <div class="form-group  col-md-4">
+                <label style="font-weight: bolder;" class="control-label mt-3">Giá vốn(VND)</label>
+                <input class="form-control" id="giavonpro" name="giavonpro" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label style="font-weight: bolder;" class="control-label mt-3">Danh mục</label>
+                <select class="form-control" onclick="checkDanhMuc()" onchange="checkDanhMuc()" id="danhmucAddpro" name="danhmucAddpro" required>
+                    <option>Chọn danh mục</option>
+                    <option>Pate</option>
+                    <option>Thức ăn hạt</option>
+                    <option>Thực phẩm chức năng</option>
+                    <option>Đồ chơi</option>
+                    <option>Dụng cụ</option>
+                    <option>Phụ kiện</option>
+                </select>
+            </div>
 
-                <div class="form-group  col-md-3">
-                    <label style="font-weight: bolder;" for="exampleSelect1" class="control-label mt-3">Tình
-                        trạng</label>
-                    <select class="form-control" onclick="checkTinhTrang()" onchange="checkTinhTrang()" id="tinhtrangAddpro" name="tinhtrangAddpro">
-                        <option>Chọn tình trạng</option>
-                        <option>Còn hàng</option>
-                        <option>Hết hàng</option>
-                    </select>
-                </div>
+            <div class="form-group  col-md-3">
+                <label style="font-weight: bolder;" for="exampleSelect1" class="control-label mt-3">Tình
+                    trạng</label>
+                <select class="form-control" onclick="checkTinhTrang()" onchange="checkTinhTrang()" id="tinhtrangAddpro" name="tinhtrangAddpro">
+                    <option>Chọn tình trạng</option>
+                    <option>Còn hàng</option>
+                    <option>Hết hàng</option>
+                </select>
+            </div>
 
-                <div class="form-group col-md-12">
-                    <label style="font-weight: bolder;" class="control-label mt-3">Ảnh sản phẩm</label>
-                    <input class="form-control" onclick="checkImg()" onmouseover="checkImg()" onchange="checkImg()" id="imagepro" name="imagepro" style="width:30%" type="file">
-                </div>
+            <div class="form-group col-md-12">
+                <label style="font-weight: bolder;" class="control-label mt-3">Ảnh sản phẩm</label>
+                <input class="form-control" onclick="checkImg()" onmouseover="checkImg()" onchange="checkImg()" id="imagepro" name="imagepro" style="width:30%" type="file">
+            </div>
 
 
-                <button class="btn btn-success mt-4 ms-2" onclick="AddPro()" type="submit" id="buttonAddPro" style="width:10%" value="Thêm" name="addproduct"> Thêm
-                </button>
-            </form>
+            <button class="btn btn-success mt-4 ms-2" onclick="AddPro()" type="submit" id="buttonAddPro" style="width:10%" value="Thêm" name="addproduct"> Thêm
+            </button>
+        </form>
 
-        </div>
     </div>
+</div>
 
 
 
@@ -206,55 +206,15 @@ $this->layoutPath = "Layout.php";
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/admin/assets/vendor/php-email-form/validate.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/../Project-petcare-php/admin/assets/js/main.js"></script>
-<script src="/../Project-petcare-php/admin/assets/js/chart.js"></script>
-<script type="text/javascript">
-    const toastTrigger = document.getElementById('liveToastBtn')
-    const toastLiveExample = document.getElementById('liveToast')
-
-    if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-        })
-    }
-    var data = {
-        labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
-        datasets: [{
-                label: "Dữ liệu đầu tiên",
-                fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
-                strokeColor: "rgb(255, 212, 59)",
-                pointColor: "rgb(255, 212, 59)",
-                pointStrokeColor: "rgb(255, 212, 59)",
-                pointHighlightFill: "rgb(255, 212, 59)",
-                pointHighlightStroke: "rgb(255, 212, 59)",
-                data: [20, 59, 90, 51, 56, 100]
-            },
-            {
-                label: "Dữ liệu kế tiếp",
-                fillColor: "rgba(9, 109, 239, 0.651)  ",
-                pointColor: "rgb(9, 109, 239)",
-                strokeColor: "rgb(9, 109, 239)",
-                pointStrokeColor: "rgb(9, 109, 239)",
-                pointHighlightFill: "rgb(9, 109, 239)",
-                pointHighlightStroke: "rgb(9, 109, 239)",
-                data: [48, 48, 49, 39, 86, 10]
-            }
-        ]
-    };
-    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-    var lineChart = new Chart(ctxl).Line(data);
-
-    var ctxb = $("#barChartDemo").get(0).getContext("2d");
-    var barChart = new Chart(ctxb).Bar(data);
-</script>
+<script src="/../Project-petcare-php/assets/js/main.js"></script>
+<script src="/../Project-petcare-php/assets/js/chart.js"></script>

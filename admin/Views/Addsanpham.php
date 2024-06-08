@@ -181,7 +181,14 @@ $this->layoutPath = "Layout.php";
                     <option>Hết hàng</option>
                 </select>
             </div>
+            <div class="form-group ">
+                <label style="font-weight: bolder;" class="control-label mt-3">Mô tả sản phẩm</label>
 
+                <textarea id="mota" name="mota" class="form-control"> </textarea>
+                <script type="text/javascript">
+                    CKEDITOR.replace("mota");
+                </script>
+            </div>
             <div class="form-group col-md-12">
                 <label style="font-weight: bolder;" class="control-label mt-3">Ảnh sản phẩm</label>
                 <input class="form-control" onclick="checkImg()" onmouseover="checkImg()" onchange="checkImg()" id="imagepro" name="imagepro" style="width:30%" type="file">
@@ -217,4 +224,20 @@ $this->layoutPath = "Layout.php";
 
 <!-- Template Main JS File -->
 <script src="/../Project-petcare-php/assets/js/main.js"></script>
-<script src="/../Project-petcare-php/assets/js/chart.js"></script>
+<script src="../js/ckeditor/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>
+<style>
+    .ck-editor__editable_inline {
+        min-height: 250px;
+        max-height: 450px;
+    }
+</style>
+<script>
+    ClassicEditor.create(document.querySelector('#mota'), {
+            language: 'vi'
+        })
+        .then(editor => {})
+        .catch(error => {
+            console.error(error)
+        });
+</script>

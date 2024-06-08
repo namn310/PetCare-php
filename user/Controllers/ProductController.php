@@ -7,4 +7,15 @@ class ProductController extends Controller
     {
         $this->loadView("product.php");
     }
+    public function danhmuc()
+    {
+        $data = $this->modelRead();
+        $this->loadView("product.php", ["data" => $data]);
+    }
+    public function detail()
+    {
+        $id = isset($_GET["id"]) && is_numeric($_GET["id"]) ? $_GET["id"] : 0;
+        $record = $this->modelGetRecord($id);
+        $this->loadView("product-detail.php", ["record" => $record]);
+    }
 }

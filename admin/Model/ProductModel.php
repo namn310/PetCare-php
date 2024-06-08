@@ -32,21 +32,34 @@ trait ProductModel
     //thêm sản phẩm
     public function modelCreate()
     {
+        $conn = Connection::getInstance();
+
+        $danhmuc = $conn->query("select * from danhmuc");
+        $danhmuc->setFetchMode(PDO::FETCH_ASSOC);
+
         $product_name = $_POST['namepro'];
         $product_quantity = $_POST['countpro'];
         $product_giaban = $_POST['giabanpro'];
         $product_giavon = $_POST['giabanpro'];
         $product_category = $_POST['danhmucAddpro'];
+        $descrip = $_POST['mota'];
+        foreach ($row = $danhmuc->fetchAll() as $a) {
+            if ($a['tendanhmuc'] == $product_category) {
+                $b = $a['id_danhmuc'];
+            }
+        }
+
         $product_state = $_POST['tinhtrangAddpro'];
+        $iddanhmuc = $b;
         //xulyhinhanh
         $hinhanh = $_FILES['imagepro']['name'];
         $hinhanh_tmp = $_FILES['imagepro']['tmp_name'];
         $hinhanh = time() . '_' . $hinhanh;
         $dateAdd = date("d-m-y");
-        $addproduct = "insert into product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,hinhanh=:_hinhanh,timeadd=:_timeadd ";
-        $conn = Connection::getInstance();
+        //$addproduct = "insert into product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,hinhanh=:_hinhanh,timeadd=:_timeadd ";
         //$query = $conn->prepare($addproduct);
-        $conn->exec('INSERT INTO product(namePro, soluong, giaban, giavon, danhmuc, tinhtrang, hinhanh, timeadd) VALUES ("' . $product_name . '","' . $product_quantity . '","' . $product_giaban . '","' . $product_giavon . '","' . $product_category . '","' . $product_state . '","' . $hinhanh . '","' . $dateAdd . '")');
+        $conn->exec('INSERT INTO product(id_danhmuc,namePro, soluong, giaban, giavon, danhmuc, tinhtrang, hinhanh,mota, timeadd) VALUES ("' . $iddanhmuc . '","' . $product_name . '","' . $product_quantity . '","' . $product_giaban . '","' . $product_giavon . '","' . $product_category . '","' . $product_state . '","' . $hinhanh . '","' . $descrip . '","' . $dateAdd . '")');
+
         move_uploaded_file($hinhanh_tmp, "../assets/img-add-pro/" . $hinhanh);
     }
     //Sửa sản phẩm
@@ -59,11 +72,12 @@ trait ProductModel
         $product_giavon = $_POST['giabanpro'];
         $product_category = $_POST['danhmucAddpro'];
         $product_state = $_POST['tinhtrangAddpro'];
+        $descrip = $_POST['mota'];
         $dateAdd = date("d-m-y");
         //lấy biến connect
         $conn = Connection::getInstance();
-        $updateproduct = $conn->prepare("update product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang where idPro=:_id");
-        $updateproduct->execute([":_name" => $product_name, ":_soluong" => $product_quantity, ":_giaban" => $product_giaban, ":_giavon" => $product_giavon, ":_danhmuc" => $product_category, ":_tinhtrang" => $product_state, ":_id" => $id]);
+        $updateproduct = $conn->prepare("update product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,mota=:_mota where idPro=:_id");
+        $updateproduct->execute([":_name" => $product_name, ":_soluong" => $product_quantity, ":_giaban" => $product_giaban, ":_giavon" => $product_giavon, ":_danhmuc" => $product_category, ":_tinhtrang" => $product_state, ":_mota" => $descrip, ":_id" => $id]);
 
         //update product
         // $updateproduct = $conn->prepare("UPDATE product SET namePro=$product_name,soluong=$product_quantity,giaban=$product_giaban,giavon=$product_giavon,danhmuc=$product_category,tinhtrang=$product_state where idPro=$id");
@@ -94,6 +108,6 @@ trait ProductModel
         if (file_exists("../assets/img-add-pro/" . $oldProImg->hinhanh)) {
             unlink("../assets/img-add-pro/" . $oldProImg->hinhanh);
         }
-        $conn->query("DELETE FROM product where idPro=$id");
+        $conn->query("DELETE FROM product WHERE idPro=$id");
     }
 }

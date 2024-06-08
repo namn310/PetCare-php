@@ -1,5 +1,7 @@
 <?php
 $this->layoutPath = ("LayoutTrangChu.php");
+$id_danhmuc = isset($_GET['idDM']) && is_numeric($_GET['idDM']) ? $_GET['idDM'] : 0;
+$conn = Connection::getInstance();
 ?>
 
 
@@ -16,72 +18,48 @@ $this->layoutPath = ("LayoutTrangChu.php");
     <div class="col-3 sm">
       <h3 class="text-center mb-2">Danh mục sản phẩm</h3>
       <ul class="category list-group">
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-pate.html">Pate</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-thucanhat.html">Thức ăn hạt</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-tpcn.html">Thực phẩm chức năng</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-dochoi.html">Đồ chơi</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-dungcu.html">Dụng cụ</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-phukien.html">Phụ kiện </a></button></li>
+        <?php
+
+
+        $data = $conn->query("SELECT * FROM danhmuc");
+        $data->setFetchMode(PDO::FETCH_ASSOC);
+        foreach ($row = $data->fetchAll() as $a) {
+        ?>
+          <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="index.php?controller=product&action=danhmuc&idDM=<?php echo $a['id_danhmuc'] ?>"><?php echo $a['tendanhmuc'] ?></a></button></li>
+
+        <?php } ?>
       </ul>
     </div>
     <div class="col-9 lg">
       <nav class="navbar mb-3 navbar-light bg-light justify-content-between">
         <h3 style="color:black"></h3>
         <form class="form-inline d-flex">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 ml-3" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input class="form-control mr-sm-2" type="text" id="nameProductSearch" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 ml-3" id="buttonSearch" type="button">Search</button>
         </form>
       </nav>
       <div class="product-detail d-flex ">
         <div class="product-detail-img">
-          <img class="img-float" style="width:400px;height:400px;border:1px solid  #EA9E1E;border-radius:5px" src="images/product/pate/pate3.png">
+          <img class="img-float" style="width:400px;height:400px;border:1px solid  #EA9E1E;border-radius:5px" src="../assets/img-add-pro/<?php echo $record->hinhanh ?>">
         </div>
         <div class="product-detail-intro">
-          <p><strong>PATE ROYAL CANIN URINARY CHO MÈO BỊ THẬN 85g GRAVY JELLY</strong></p>
-          <p><strong>Mã sản phẩm :</strong>78956</p>
+          <p>
+          <h4><?php echo $record->namePro ?></h4>
+          </p>
+          <p><strong>Mã sản phẩm :</strong><?php echo $record->idPro ?></p>
           <p><strong>Lượt mua: </strong>324</p>
-          <p><strong>Thương hiệu: </strong>Royal Cannin</p>
-          <p><strong>Giá bán: </strong> <span class="text-danger">200.000đ</span></p>
+
+          <p><strong>Giá bán: </strong> <span class="text-danger"><?php echo $record->giaban ?></span></p>
           <!-- Button trigger modal -->
           <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-            Mua
+            Thêm vào giỏ hàng
           </button>
 
         </div>
       </div>
 
-      <div class="thongtinchitiet mt-3">
-        <p><strong>Thông tin chi tiết</strong></p>
-        <p>
-          Công thức FELINE HEALTH NUTRITION ™ tạo nên thức ăn ướt được thiết kế trên nhu cầu dinh dưỡng và sở thích bản năng của mèo. Công thức này được tạo ra với sự cân bằng tối ưu về protein, chất béo và tinh bột carbohydrate nhằm mang đến sự ngon miệng và bổ sung dinh dưỡng hoàn hảo
-        </p>
-        <p>
-          <strong>Lợi ích của PATE ROYAL CANIN URINARY CHO MÈO BỊ THẬN 85g GRAVY JELLY</strong>
-        </p>
-        <p>
-          <strong>Khởi đầu hoàn hảo</strong>
-
-        <p>>Đối với mèo con, kết cấu mousse của dạng pate ướt giúp mèo hỗ quá trình chuyển tiếp từ thức ăn mềm sang thức ăn cứng.</p>
-
-        <p><strong>Phù hợp một cách tự nhiên
-          </strong></p>
-        <p>Chế độ dinh dưỡng này phù hợp với nhu cầu tự nhiên của mèo. Công thức phù hợp với Macronutritional tối ưu theo bản năng của mèo con.</p>
-
-        <strong>Hỗ trợ hệ miễn dịch</strong>
-
-        <p>giúp hỗ trợ sức đề kháng tự nhiên của mèo con.</p>
-        </p>
-        <div class="d-flex">
-          <img class="img-float" style="max-width: 100%;height:auto" src="images/product-detail/46096885071_e5b4773ccd_z.jpg">
-        </div>
-        <p>
-          <strong>Thành phần nguyên liệu</strong>
-        </p>
-        <p>Nước, gan gà, gà, phụ phẩm từ thịt gà, phụ phẩm thịt heo, gluten lúa mì, cellulose, tinh bột ngô biến đổi, huyết tương heo, hương tự nhiên, dầu thực vật, bột gạo, dầu cá, men thủy phân, canxi cacbonat, carrageenan, natri tripolyphosphate, guar gum, kali photphat, taurine, vitamin [DL-alpha tocopherol acetate (nguồn vitamin E), L-ascorbyl-2-polyphosphate (nguồn vitamin C), thiamine mononitrate (vitamin B1), bổ sung niacin, biotin, D-calcium pantothenate, bổ sung riboflavin, pyridoxin hydrochloride (vitamin B6), axit folic, bổ sung vitamin B12, bổ sung vitamin D3], choline clorua, clorua kali, khoáng chất vi lượng [zinc proteinate, zinc oxide, ferrous sulfate, sunfat đồng, oxit mangan, natri selenit, canxi iodat], chiết xuất vạn thọ (Tagetes erecta L.), oxit magiê, caroten.</p>
-        <p>Chế độ ăn có thể tham khảo dưới đây</p>
-        <div class="d-flex">
-          <img class="img-float" style="max-width: 100%;height:auto" src="images/product-detail/46045857982_e829baceaa_z.jpg">
-        </div>
+      <div class="thongtinchitiet mt-3" style="padding-bottom:50px">
+        <?php echo $record->mota ?>
       </div>
 
 

@@ -279,6 +279,11 @@
                     <i class="fa-brands fa-product-hunt"></i><span>Quản lý sản phẩm</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?controller=danhmuc">
+                    <i class="fa-brands fa-product-hunt"></i><span>Quản lý danh mục</span>
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=dichvu">
@@ -311,7 +316,7 @@
         echo $this->view;
         ?>
     </div>
-    
+
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 <?php
 $this->layoutPath = ("LayoutTrangChu.php");
+$id_danhmuc = isset($_GET['idDM']) && is_numeric($_GET['idDM']) ? $_GET['idDM'] : 0;
+$conn = Connection::getInstance();
 ?>
 
 
@@ -15,171 +17,56 @@ $this->layoutPath = ("LayoutTrangChu.php");
     <div class="col-3 sm">
       <h3 class="text-center mb-2">Danh mục sản phẩm</h3>
       <ul class="category list-group">
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-pate.html">Pate</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-thucanhat.html">Thức ăn hạt</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-tpcn.html">Thực
-              phẩm chức năng</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-dochoi.html">Đồ
-              chơi</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-dungcu.html">Dụng cụ</a></button></li>
-        <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="product-phukien.html">Phụ kiện </a></button></li>
+        <?php
+
+
+        $data = $conn->query("SELECT * FROM danhmuc");
+        $data->setFetchMode(PDO::FETCH_ASSOC);
+        foreach ($row = $data->fetchAll() as $a) {
+        ?>
+          <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="index.php?controller=product&action=danhmuc&idDM=<?php echo $a['id_danhmuc'] ?>"><?php echo $a['tendanhmuc'] ?></a></button></li>
+
+        <?php } ?>
       </ul>
     </div>
     <div class="col-9 lg">
       <nav class="navbar mb-3 navbar-light bg-light justify-content-between">
-        <h3 style="color:black">Sản phẩm hot</h3>
+        <h3 style="color:black"><?php echo $this->getDanhMuc($id_danhmuc)  ?></h3>
         <form class="form-inline d-flex">
           <input class="form-control mr-sm-2" type="text" id="nameProductSearch" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0 ml-3" id="buttonSearch" type="button">Search</button>
         </form>
       </nav>
+
       <div class="product-list container d-flex align-items-start flex-wrap" number="">
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/dochoi/dc8.webp" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Dép bông cho chó mèo</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">250.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
+        <?php
+        $query = $conn->query("select * from product where id_danhmuc=$id_danhmuc");
+        foreach ($data = $query->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        ?>
+          <div id="product-infor" class="card d-flex flex-column justify-content-around" style="width: 15rem;height:27rem">
+            <div>
+              <a id="img_pro" href="index.php?controller=product&action=detail&id=<?php echo $row['idPro'] ?>"> <img class="card-img-top img-fluid p-2" src="../assets/img-add-pro/<?php echo $row['hinhanh'] ?>" alt="Card image cap"></a>
+            </div>
+            <div class="card-body" id="card-body">
+              <h5 id="name-product" class="card-title"><?php echo $row['namePro'] ?></h5>
+              <span class="rating secondary-font">
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                5.0</span>
+              <p class="card-text text-danger"><?php echo $row['giaban'] ?></p>
+
+            </div>
           </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/dochoi/dc4.webp" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Đồ chơi hình xương cá</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">150.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/pate/pate4.png" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Pate Snappy Tom</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">250.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/dungcu/dc3.png" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Dụng cụ gắp phân</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">250.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/TPCN/tpcn4.jpg" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Tẩy giun dạng lỏng </h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">245.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/pate/pate7.png" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Pate reflex</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">220.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/thucanhat/hat6.jpg" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Nabirang</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">190.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
-        <div id="product-infor" class="card" style="width: 15rem;height:27rem;">
-          <a href="product-detail.html"> <img class="card-img-top" src="../images/product/dochoi/dc5.jpg" alt="Card image cap"></a>
-          <div class="card-body">
-            <h5 id="name-product" class="card-title">Cần câu mồi giả</h5>
-            <span class="rating secondary-font">
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              <i class="fa-solid fa-star text-warning"></i>
-              5.0</span>
-            <p class="card-text text-danger">250.000đ</p>
-            <!-- Button trigger modal -->
-            <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-              Mua
-            </button>
-          </div>
-        </div>
+        <?php
+        } ?>
+
+
 
       </div>
+      <!--
       <div class="mt-3 d-flex ">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
@@ -192,6 +79,7 @@ $this->layoutPath = ("LayoutTrangChu.php");
           </ul>
         </nav>
       </div>
+      -->
     </div>
   </div>
 </div>

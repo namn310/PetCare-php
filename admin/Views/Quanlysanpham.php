@@ -82,6 +82,26 @@ $this->layoutPath = "Layout.php";
                                         <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp">
                                             <a style="text-decoration:none;color:white" href="index.php?controller=product&action=change&id=<?php echo $row->idPro ?>"><i class="fas fa-edit"></i> </a>
                                         </button>
+
+                                        <!-- Modal xóa -->
+                                        <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Bạn có muốn xóa không ?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary"><a style="text-decoration:none;color:white" href="index.php?controller=product&action=delete&id=<?php echo $row->idPro ?>">Đồng ý</a></button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php
@@ -108,88 +128,7 @@ $this->layoutPath = "Layout.php";
     
   MODAL
 -->
-<div class="modal fade" id="Modalproduct" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 style="font-weight:bolder">Chỉnh sửa sản phẩm</h4>
-                <button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
 
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="control-label" style="font-weight: bold;">Mã sản phẩm </label>
-                        <input class="form-control" type="number" value="71309005">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label" style="font-weight: bold;">Tên sản phẩm</label>
-                        <input class="form-control" type="text" required value="Sữa pha Pretacen">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label" style="font-weight: bold;">Số lượng</label>
-                        <input class="form-control" type="number" required value="20">
-                    </div>
-                    <div class="form-group  col-md-6">
-                        <label class="control-label" style="font-weight: bold;">Ảnh</label>
-                        <input class="form-control" type="file" required>
-                    </div>
-                    <div class="form-group col-md-6 ">
-                        <label for="exampleSelect1" class="control-label" style="font-weight: bold;">Tình trạng sản
-                            phẩm</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Còn hàng</option>
-                            <option>Hết hàng</option>
-                            <option>Đang nhập hàng</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="control-label" style="font-weight: bold;">Giá bán</label>
-                        <input class="form-control" type="text" value="5.600.000">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="exampleSelect1" class="control-label" style="font-weight: bold;">Danh
-                            mục</label>
-                        <select class="form-select" id="exampleSelect2">
-                            <option>Pate</option>
-                            <option>Thức ăn hạt</option>
-                            <option>Đồ chơi</option>
-                            <option>Thực phẩm chức năng</option>
-                            <option>Dụng cụ</option>
-                            <option>Phụ kiện</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success" type="button" data-bs-dismiss="modal">Lưu lại</button>
-                <a class="btn btn-danger" data-bs-dismiss="modal">Hủy bỏ</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!--
-MODAL
--->
-<!-- Modal xóa -->
-<div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Bạn có muốn xóa không ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary"><a style="text-decoration:none;color:white" href="index.php?controller=product&action=delete&id=<?php echo $row->idPro ?>">Đồng ý</a></button>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- ======= Footer ======= -->
 

@@ -1,5 +1,5 @@
 <?php
-include("Model/NhanvienModel.php"); 
+include("Model/NhanvienModel.php");
 class NhanvienController extends Controller
 {
 
@@ -10,12 +10,17 @@ class NhanvienController extends Controller
     }
     public function create()
     {
-        $action = "index.php?controller=nhanvien&action=createPost";
-        $this->loadView("Addnhanvien.php", ["action" => $action]);
+        $this->loadView("Addnhanvien.php");
     }
     public function createPost()
     {
         $this->modelCreate();
+        header("Location:index.php?controller=nhanvien");
+    }
+    public function delete()
+    {
+        $id = isset($_GET['id']) ? $_GET['id'] : 0;
+        $this->delete($id);
         header("Location:index.php?controller=nhanvien");
     }
 }

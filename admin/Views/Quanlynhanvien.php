@@ -50,7 +50,6 @@ $this->layoutPath = "Layout.php";
                         <thead>
                             <tr class="table-primary">
                                 <th width="10">
-
                                 </th>
                                 <th>
                                     ID nhân viên
@@ -61,12 +60,11 @@ $this->layoutPath = "Layout.php";
                                 <th width="20">
                                     Ảnh thẻ
                                 </th>
-                                <th width="300">
-                                    Địa chỉ
-                                </th>
+
                                 <th>Ngày sinh</th>
                                 <th>Giới tính</th>
                                 <th>SĐT</th>
+                                <th>email</th>
                                 <th>Chức vụ</th>
                                 <th width="100">
                                     Tính năng
@@ -74,228 +72,42 @@ $this->layoutPath = "Layout.php";
                             </tr>
                         </thead>
                         <tbody id="table-nv">
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" name="check1" value="1" />
-                                </td>
-                                <td>#CD12837</td>
-                                <td>
-                                    Hồ Thị Thanh
-                                    Ngân
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/1.jpg" alt="" />
-                                </td>
-                                <td>
-                                    155-157 Trần
-                                    Quốc Thảo,
-                                    Quận 3, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>12/02/1999</td>
-                                <td>Nữ</td>
-                                <td>0926737168</td>
-                                <td>Bán hàng</td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" name="check2" value="2" />
-                                </td>
-                                <td>#SX22837</td>
-                                <td>Trần Khả Ái</td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/2.jpg" alt="" />
-                                </td>
-                                <td>
-                                    6 Nguyễn Lương
-                                    Bằng, Tân Phú,
-                                    Quận 7, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>22/12/1999</td>
-                                <td>Nữ</td>
-                                <td>0931342432</td>
-                                <td>Bán hàng</td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" name="check3" value="3" />
-                                </td>
-                                <td>#LO2871</td>
-                                <td>
-                                    Phạm Thu Cúc
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/3.jpg" alt="" />
-                                </td>
-                                <td>
-                                    Số 3 Hòa Bình,
-                                    Phường 3, Quận
-                                    11, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>02/06/1998</td>
-                                <td>Nữ</td>
-                                <td>0931491997</td>
-                                <td>
-                                    Spa-Grooming
-                                </td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" />
-                                </td>
-                                <td>#SR28746</td>
-                                <td>
-                                    Trần Anh Khoa
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/4.jpg" alt="" />
-                                </td>
-                                <td>
-                                    19 Đường
-                                    Nguyễn Hữu
-                                    Thọ, Tân Hưng,
-                                    Quận 7, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>18/02/1995</td>
-                                <td>Nam</td>
-                                <td>0916706633</td>
-                                <td>
-                                    Chăm sóc thú
-                                    cưng
-                                </td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" />
-                                </td>
-                                <td>#KJS276</td>
-                                <td>
-                                    Nguyễn Thành
-                                    Nhân
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/2.jpg" alt="" />
-                                </td>
-                                <td>
-                                    Số 13, Tân
-                                    Thuận Đông,
-                                    Quận 7, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>10/03/1996</td>
-                                <td>Nam</td>
-                                <td>0971038066</td>
-                                <td>
-                                    Spa-Grooming
-                                </td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" />
-                                </td>
-                                <td>#BS76228</td>
-                                <td>
-                                    Nguyễn Đặng
-                                    Trọng Nhân
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/6.jpg" alt="" />
-                                </td>
-                                <td>
-                                    59C Nguyễn
-                                    Đình Chiểu,
-                                    Quận 3, Hồ Chí
-                                    Minh
-                                </td>
-                                <td>23/07/1996</td>
-                                <td>Nam</td>
-                                <td>0846881155</td>
-                                <td>
-                                    Chăm sóc thú
-                                    cưng
-                                </td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10">
-                                    <input type="checkbox" />
-                                </td>
-                                <td>#YUI21376</td>
-                                <td>
-                                    Nguyễn Thị Mai
-                                </td>
-                                <td>
-                                    <img class="img-card-person" src="/Views/img-anhthe/7.jpg" alt="" />
-                                </td>
-                                <td>
-                                    Đường Số 3,
-                                    Tân Tạo A,
-                                    Bình Tân, Hồ
-                                    Chí Minh
-                                </td>
-                                <td>09/12/2000</td>
-                                <td>Nữ</td>
-                                <td>0836333037</td>
-                                <td>Tư vấn</td>
-                                <td class="table-td-center">
-                                    <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                    <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            <?php
+                            $conn = Connection::getInstance();
+                            $query = $conn->query("select * from nhanvien");
+                            $result = $query->fetchAll(PDO::FETCH_OBJ);
+                            foreach ($result as $a) {
+                            ?>
+                                <tr>
+                                    <td width="10">
+                                        <input type="checkbox" name="check1" value="1" />
+                                    </td>
+                                    <td><?php echo $a->idNV ?></td>
+                                    <td>
+                                        <?php echo $a->tenNV ?>
+                                    </td>
+                                    <td>
+                                        <img class="img-fluid" src="../assets/img-nhanvien/<?php echo $a->anhNV  ?>" alt="" />
+                                    </td>
+
+                                    <td><?php echo $a->birth ?></td>
+                                    <td><?php echo $a->sex ?></td>
+                                    <td><?php echo $a->phone ?></td>
+                                    <td><?php echo $a->email ?></td>
+                                    <td><?php echo $a->chucvu ?></td>
+                                    <td class="table-td-center">
+                                        <button class="btn btn-danger btn-sm trash" data-bs-target="#delete" data-bs-toggle="modal" type="button" title="Xóa">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <button class="btn btn-success btn-sm edit" type="button" title="Sửa" id="show-emp" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php
+                            } ?>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -377,15 +189,20 @@ $this->layoutPath = "Layout.php";
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Xóa thành công
+                Bạn có muốn xóa không ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <a style="text-decoration:none;color:white" href="index.php?controller=nhanvien&action=delete&id=<?php echo $a->idNV ?>"> <button type="button" class="btn btn-primary">Xác nhận</button> </a>
 
             </div>
         </div>
     </div>
 </div>
+<?php
+echo memory_get_peak_usage();
+
+?>
 
 
 <!-- ======= Footer ======= -->

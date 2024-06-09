@@ -1,7 +1,10 @@
 <?php
+include "Model/ProductModel.php";
+
 class HomeController extends Controller
 {
-
+    use ProductModel;
+  
     public function __construct()
     {
     }

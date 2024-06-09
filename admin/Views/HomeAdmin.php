@@ -1,5 +1,6 @@
 <?php
 $this->layoutPath = "Layout.php";
+include "Model/DonhangModel.php";
 ?>
 
 
@@ -25,7 +26,7 @@ $this->layoutPath = "Layout.php";
           </div>
           <div class="widget-status">
             <h4 class="text-danger">Tổng sản phẩm</h4>
-            <p><b>56 khách hàng</b></p>
+            <p><b><?php echo $this->modelTotal() ?> sản phẩm</b></p>
             <p class="info-tong">Tổng số sản phẩm được quản lý.</p>
           </div>
         </div>
@@ -35,7 +36,11 @@ $this->layoutPath = "Layout.php";
           </div>
           <div class="widget-status">
             <h4 class="text-danger">Tổng đơn hàng</h4>
-            <p><b>56 khách hàng</b></p>
+            <p><b><?php
+                  $conn = Connection::getInstance();
+                  $result = $conn->query("select id from orders");
+                  echo $result->rowCount();
+                  ?> đơn hàng</b></p>
             <p class="info-tong">Tổng số khách hàng được quản lý.</p>
           </div>
         </div>
@@ -45,11 +50,17 @@ $this->layoutPath = "Layout.php";
           </div>
           <div class="widget-status">
             <h4 class="text-danger">Sắp hết hàng</h4>
-            <p><b>56 khách hàng</b></p>
+            <p><b><?php
+                  $result = $conn->query("select idPro from product where soluong < 0");
+                  echo $result->rowCount();
+
+
+                  ?> Sản phẩm</b></p>
             <p class="info-tong">Số sản phẩm cần nhập thêm.</p>
           </div>
         </div>
       </div>
+      <!--
       <div class="donhang mt-5 p-3 bg-white" style="border-radius:10px">
         <h4>Tình trạng đơn hàng</h4>
         <hr>
@@ -138,6 +149,7 @@ $this->layoutPath = "Layout.php";
           </tbody>
         </table>
       </div>
+-->
     </div>
     <div class="main-content-right" style="margin-left:20px">
       <img class="img-fluid" src="/../Project-petcare-php/assets/img/bieudo.png">

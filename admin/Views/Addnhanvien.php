@@ -12,7 +12,7 @@ $this->layoutPath = "Layout.php";
   </nav>
 
   <!-- End Page Title -->
-  <form id="AddForm" method="post" class="AddForm row mt-4" action="<? echo $action ?>" enctype="multipart/form-data" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
+  <form id="AddForm" class="row mt-4" method="post" action="index.php?controller=nhanvien&action=createPost" enctype="multipart/form-data" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
 
     <div class="form-group col-md-4">
       <label style="font-weight: bolder;" class="control-label">Họ và tên</label>
@@ -67,7 +67,8 @@ $this->layoutPath = "Layout.php";
       <label style="font-weight: bolder;" class="control-label mt-3">Ảnh 3x4 nhân viên</label>
       <input class="form-control" style="width:50%" type="file" onchange="checkImgNV()" onclick="checkImgNV()" id="uploadImgNV" name="imgNV">
     </div>
-    <button class="btn btn-success mt-4" type="submit" href="" id="addbutton" onclick="checkFormAddNV()" style="width:10%">Thêm</button>
+
+    <a style="text-decoration:none;color:white"> <button class="btn btn-success mt-4" type="submit" id="addbutton" style="width:10%">Thêm</button></a>
   </form>
 </div>
 
@@ -102,36 +103,8 @@ $this->layoutPath = "Layout.php";
       toastBootstrap.show()
     })
   }
-  var data = {
-    labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
-    datasets: [{
-        label: "Dữ liệu đầu tiên",
-        fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
-        strokeColor: "rgb(255, 212, 59)",
-        pointColor: "rgb(255, 212, 59)",
-        pointStrokeColor: "rgb(255, 212, 59)",
-        pointHighlightFill: "rgb(255, 212, 59)",
-        pointHighlightStroke: "rgb(255, 212, 59)",
-        data: [20, 59, 90, 51, 56, 100]
-      },
-      {
-        label: "Dữ liệu kế tiếp",
-        fillColor: "rgba(9, 109, 239, 0.651)  ",
-        pointColor: "rgb(9, 109, 239)",
-        strokeColor: "rgb(9, 109, 239)",
-        pointStrokeColor: "rgb(9, 109, 239)",
-        pointHighlightFill: "rgb(9, 109, 239)",
-        pointHighlightStroke: "rgb(9, 109, 239)",
-        data: [48, 48, 49, 39, 86, 10]
-      }
-    ]
-  };
-  var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-  var lineChart = new Chart(ctxl).Line(data);
-
-  var ctxb = $("#barChartDemo").get(0).getContext("2d");
-  var barChart = new Chart(ctxb).Bar(data);
 </script>
+
 <script>
   function checkName() {
     var name_correct =
@@ -336,8 +309,9 @@ $this->layoutPath = "Layout.php";
   function checkFormAddNV() {
     if (checkCMND() == false || checkChucVuNV() == false || checkDateNV() == false || checkEmail() == false || checkImgNV() == false || checkLocalNV() == false || checkName() == false || checkPhone() == false || checkSex() == false) {
       alert("Vui lòng kiểm tra lại thông tin");
+
     } else {
-      confirm("Đã thêm thành công");
+      confirm("Thêm thanh công!");
 
     }
   }

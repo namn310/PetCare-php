@@ -13,8 +13,9 @@ trait ProductModel
     {
         $conn = Connection::getInstance();
         $query = $conn->query("select tendanhmuc from danhmuc where id_danhmuc = $id_danhmuc");
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result['tendanhmuc'];
+        $a = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($a as $result)
+            return $result['tendanhmuc'];
     }
     public function modelGetRecord($id)
     {

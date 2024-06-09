@@ -1,5 +1,6 @@
 <?php
 $this->layoutPath = "LayoutTrangChu.php";
+
 ?>
 <div class="container-fluid" style="margin-top:100px">
     <img class="w-100" src="../images/product/banner_collection.webp">
@@ -11,151 +12,57 @@ $this->layoutPath = "LayoutTrangChu.php";
     </span>
     <i class="fa-solid fa-heart" style="color: #de2121;align-items: center;"></i>
 </div>
-<div class="product-list container d-flex align-items-center justify-content-between flex-wrap" number="">
-    <!-- san pham 1 -->
-    <div class="col-lg-3 col-md-4 mb-3 ps-3">
-        <div class="product-box">
-            <div class="product-inner-box position-relative">
-                <div class="icons position-absolute">
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-heart text-danger"></i></a>
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-eye"></i></a>
+<div class="product-list container d-flex align-items-center justify-content-evenly flex-wrap" number="">
+    <?php
+    $result = $this->ModelHotProduct();
+    foreach ($result as $a) {
+    ?>
+        <!-- san pham 1 -->
+        <div class="col-lg-3 col-md-4 mb-3 ps-3">
+            <div class="product-box">
+                <div class="product-inner-box position-relative">
+                    <!-- 
+                    <div class="icons position-absolute">
+                        <a href="" class="text-decoration-none text-dark"><i class="fas fa-heart text-danger"></i></a>
+                        <a href="" class="text-decoration-none text-dark"><i class="fas fa-eye"></i></a>
+                    </div>
+    -->
+                    <div class="onsale position-absolute top-0 start-0">
+                        <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i><?php echo $a->discount ?>%</span>
+                    </div>
+                    <div> <a href="index.php?controller=product&action=detail&id=<?php echo $a->idPro ?>"> <img src="../assets/img-add-pro/<?php echo $a->hinhanh ?>" alt="img-fluid"></a></div>
+                    <!-- 
+                    <div class="cart-btn">
+                        <button class=" btn btn-white shadow-sm rounded-pill" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct"><i class="fa-solid fa-cart-shopping"></i>
+                            Mua</button>
+                    </div>-->
                 </div>
-                <div class="onsale position-absolute top-0 start-0">
-                    <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i>30%</span>
+                <div class="product-info">
+                    <div class="product-name mt-2">
+                        <h3 class="mt-4"></h3>
+                    </div>
+                    <span class="rating secondary-font">
+                        <b><?php echo $a->namePro ?></b>
+                        <br>
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <i class="fa-solid fa-star text-warning"></i>
+                        5.0
+                    </span>
+                    <div class="product-price">
+                        <p class="card-text text-danger text-decoration-line-through"><?php echo number_format($a->giaban) ?></p>
+                        <p class="text-danger"><?php echo
+                                                number_format($a->giaban - ($a->giaban * $a->discount) / 100);  ?></p>
+                    </div>
                 </div>
-                <img src="../images/product/dochoi/dc1.jpg" alt="img-fluid">
-                <div class="cart-btn">
-                    <button class=" btn btn-white shadow-sm rounded-pill" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct"><i class="fa-solid fa-cart-shopping"></i>
-                        Mua</button>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-name mt-2">
-                    <h3><b>Đồ chơi hình bóng</b></h3>
-                </div>
-                <span class="rating secondary-font">
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    5.0</span>
-                <div class="product-price">
-                    <p class="card-text text-danger text-decoration-line-through">200.000đ</p>
-                    <p class="text-danger">140.000đ</p>
-                </div>
-
             </div>
         </div>
-    </div>
-    <!-- sanpham 2 -->
-    <div class="col-lg-3 col-md-4 mb-3 ps-3">
-        <div class="product-box">
-            <div class="product-inner-box position-relative">
-                <div class="icons position-absolute">
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-heart text-danger"></i></a>
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-eye"></i></a>
-                </div>
-                <div class="onsale position-absolute top-0 start-0">
-                    <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i>20%</span>
-                </div>
-                <img src="../images/product/pate/pate6.png" alt="img-fluid">
-                <div class="cart-btn">
-                    <button class=" btn btn-white shadow-sm rounded-pill" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct"><i class="fa-solid fa-cart-shopping"></i>
-                        Mua</button>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-name mt-2">
-                    <h3><b>Pate Snappy Tom</b></h3>
-                </div>
-                <span class="rating secondary-font">
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    5.0</span>
-                <div class="product-price">
-                    <p class="card-text text-danger text-decoration-line-through">200.000đ</p>
-                    <p class="text-danger">140.000đ</p>
-                </div>
+    <?php
+    }
+    ?>
 
-            </div>
-        </div>
-    </div>
-    <!-- san pham 3 -->
-    <div class="col-lg-3 col-md-4 mb-3 ps-3">
-        <div class="product-box">
-            <div class="product-inner-box position-relative">
-                <div class="icons position-absolute">
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-heart text-danger"></i></a>
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-eye"></i></a>
-                </div>
-                <div class="onsale position-absolute top-0 start-0">
-                    <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i>10%</span>
-                </div>
-                <img src="../images/product/TPCN/tpcn2.jpg" alt="img-fluid">
-                <div class="cart-btn">
-                    <button class=" btn btn-white shadow-sm rounded-pill" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct"><i class="fa-solid fa-cart-shopping"></i>
-                        Mua</button>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-name mt-2">
-                    <h3><b>Vitamin OS-CAL</b></h3>
-                </div>
-                <span class="rating secondary-font">
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    5.0</span>
-                <div class="product-price">
-                    <p class="card-text text-danger text-decoration-line-through">300.000đ</p>
-                    <p class="text-danger">240.000đ</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- sanpham4 -->
-    <div class="col-lg-3 col-md-4 mb-3 ps-3">
-        <div class="product-box">
-            <div class="product-inner-box position-relative">
-                <div class="icons position-absolute">
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-heart text-danger"></i></a>
-                    <a href="" class="text-decoration-none text-dark"><i class="fas fa-eye"></i></a>
-                </div>
-                <div class="onsale position-absolute top-0 start-0">
-                    <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i>15%</span>
-                </div>
-                <img src="../images/product/dochoi/dc2.jpg" alt="img-fluid">
-                <div class="cart-btn">
-                    <button class=" btn btn-white shadow-sm rounded-pill" id="buy" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalbuyproduct"><i class="fa-solid fa-cart-shopping"></i>
-                        Mua</button>
-                </div>
-            </div>
-            <div class="product-info">
-                <div class="product-name mt-2">
-                    <h3><b>Đồ chơi hình xương</b></h3>
-                </div>
-                <span class="rating secondary-font">
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    <i class="fa-solid fa-star text-warning"></i>
-                    5.0</span>
-                <div class="product-price">
-                    <p class="card-text text-danger text-decoration-line-through">200.000đ</p>
-                    <p class="text-danger">140.000đ</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="modal fade" id="modalbuyproduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

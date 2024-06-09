@@ -5,7 +5,9 @@ class ProductController extends Controller
     use ProductModel;
     public function index()
     {
-        $this->loadView("product.php");
+        $data = $this->modelRead();
+
+        $this->loadView("product.php", ["data" => $data]);
     }
     public function danhmuc()
     {

@@ -32,10 +32,9 @@
 
 
             <!--------------------------- Left Box ----------------------------->
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                style="background: #FFE4DA;">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: #FFE4DA;">
                 <div class="featured-image mb-3">
-                    <img src="images/logo/PetCARE (2).png" class="img-fluid mt-3" style="width:100%">
+                    <img src="../assets/img/PetCARE.png" class="img-fluid mt-3" style="width:100%">
                 </div>
 
 
@@ -46,25 +45,16 @@
             <div class="col-md-6 right-box">
                 <div class="row align-items-center">
                     <div class="header-text mb-4">
-                        <h3 class="text-center"
-                            style="font-family: 'Courier New', Courier, monospace;font-weight: 600;">Đăng Nhập</h3>
+                        <h3 class="text-center" style="font-family: 'Courier New', Courier, monospace;font-weight: 600;">Đăng Nhập</h3>
                     </div>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/login-img/google.png"
-                                style="width:20px;" class="me-2"><small>Đăng nhập bằng Google</small></button>
-                    </div>
-                    <div class="col-md-4 mx-auto mb-4 text-center">
-                        <small style="font-family: 'Courier New', Courier, monospace;font-weight: 100;">Hoặc</small>
-                    </div>
-                    <form id="loginForm">
+
+                    <form id="loginForm" method="post" action="index.php?controller=account&action=Login">
                         <div class="form-group mb-3">
-                            <input type="email" class="form-control form-control-lg bg-light fs-6" id="email_login"
-                                placeholder="Nhập Email của bạn">
+                            <input type="email" class="form-control form-control-lg bg-light fs-6" id="email_login" name="email" placeholder="Nhập Email của bạn">
                             <p class="emailError text-danger"></p>
                         </div>
                         <div class="form-group mb-1">
-                            <input type="password" class="form-control form-control-lg bg-light fs-6"
-                                id="password_login" placeholder="Nhập mật khẩu">
+                            <input type="password" class="form-control form-control-lg bg-light fs-6" name="password" id="password" placeholder="Nhập mật khẩu">
                             <p class="passwordError text-danger"></p>
                         </div>
 
@@ -79,14 +69,13 @@
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <button class="btn btn-lg btn-warning w-100 fs-6" type="submit" id="submit"><a
-                                    style="text-decoration: none;color:white" href="index1.html">Đăng Nhập</a></button>
+                            <button class="btn btn-lg btn-warning w-100 fs-6" type="submit" id="submit"><a style="text-decoration: none;color:white">Đăng Nhập</a></button>
                         </div>
                     </form>
 
 
                     <div class="row">
-                        <small>Bạn chưa có tài khoản? <a href="sign_in.html">Đăng Ký</a></small>
+                        <small>Bạn chưa có tài khoản? <a href="index.php?controller=register">Đăng Ký</a></small>
                     </div>
 
                 </div>
@@ -96,20 +85,17 @@
         </div>
     </div>
     <script>
-        function isEmail (inputEmail)
-        {
+        function isEmail(inputEmail) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(inputEmail);
         }
-        function validatePassword (inputPassword)
-        {
+
+        function validatePassword(inputPassword) {
             return inputPassword.length > 4;
         }
 
-        $(document).ready(function ()
-        {
-            $('#email_login').change(function ()
-            {
+        $(document).ready(function() {
+            $('#email_login').change(function() {
                 var email = $(this).val().trim();
                 // alert(`email = ${JSON.stringify(email)}`)
                 if (!isEmail(email)) {
@@ -119,8 +105,7 @@
                     $(".emailError").html("");
                 }
             });
-            $('#password_login').change(function ()
-            {
+            $('#password_login').change(function() {
                 var password = $(this).val();
                 if (!validatePassword(password)) {
                     $(".passwordError").html("Mật khẩu phải có ít nhất 8 ký tự, có ít nhất 1 chữ thường và 1 chữ in");

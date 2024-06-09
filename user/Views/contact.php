@@ -8,37 +8,10 @@ $this->layoutPath = ("LayoutTrangChu.php");
 
 
 <!-- contact form -->
-<div class=" container contact-form d-flex justify-content-between mt-4 pdt">
-  <div class="contact-link">
-    <img class="img-fluid" style="width:80%;height:90%" src="../images/other-img/letters-1459347_1280.webp">
-  </div>
-  <div class="form-contact" style="border-radius:20px;box-shadow:5px 10px 20px blue">
-    <h1 class="p-3 text-center">Contact Form</h1>
-    <form style="padding:20px" id="contact_form" name="contact_form">
-      <div class="mb-5 row">
-        <div class="col">
-          <label>Họ và tên</label>
-          <input onclick="checkCustomerDetailName()" onkeydown="checkCustomerDetailName()" type="text" required maxlength="50" class="form-control" id="name" name="name">
-        </div>
-      </div>
-      <div class="mb-5 row">
-        <div class="col">
-          <label for="email">Email </label>
-          <input onclick="checkCustomerDetailEmail()" onkeyup="checkCustomerDetailEmail()" type="email" required maxlength="50" class="form-control" id="email" name="email" placeholder="name@example.com">
-        </div>
-        <div class="col">
-          <label for="phonenumber">Số điện thoại</label>
-          <input onclick="checkCustomerDetailPhone()" onkeyup="checkCustomerDetailPhone()" type="text" class="form-control" id="phonenumber" name="Phone" placeholder="Phone">
-        </div>
-      </div>
-      <div class="mb-5">
-        <label for="message">Nội dung</label>
-        <textarea onclick="checkMessage()" onkeyup="checkMessage()" class="form-control" id="message" name="message" rows="5" style="resize:none"></textarea>
-        <p id="error_message" class="text-danger" style="display:none">Vui lòng nhập nội dung</p>
-      </div>
-      <button onclick="sendContactForm()" type="submit" class="btn btn-primary px-4 btn-lg">Gửi</button>
-    </form>
-  </div>
+<div style="margin-top:150px">
+  <h1 class="text-center">Địa chỉ</h1>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.00278315072!2d105.7699068245006!3d21.032574641205347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b6ceb55e4d%3A0xe8ad1b082e1da4bb!2zMTcgTmcuIDY2IFAuIE5ndXnhu4VuIEhvw6BuZywgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1657290849831!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen=""></iframe>
 </div>
 <!-- contact-form end-->
 <!--footer-->

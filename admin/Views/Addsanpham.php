@@ -159,6 +159,11 @@ $this->layoutPath = "Layout.php";
                 <label style="font-weight: bolder;" class="control-label mt-3">Giá vốn(VND)</label>
                 <input class="form-control" id="giavonpro" name="giavonpro" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
             </div>
+            <div class="form-group  col-md-4">
+                <label style="font-weight: bolder;" class="control-label mt-3">Giảm giá(%)</label>
+                <input class="form-control" id="giavonpro" name="discount" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
+            </div>
+
             <div class="form-group col-md-3">
                 <label style="font-weight: bolder;" class="control-label mt-3">Danh mục</label>
                 <select class="form-control" onclick="checkDanhMuc()" onchange="checkDanhMuc()" id="danhmucAddpro" name="danhmucAddpro" required>

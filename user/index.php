@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //load file Connection.php
 include "../connection/Connection.php";
 //load file controller
@@ -22,4 +24,5 @@ if (file_exists($fileController)) {
     //goi den ham trong object
     $obj->$action();
 }
+
 ?>

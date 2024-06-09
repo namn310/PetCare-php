@@ -1,27 +1,36 @@
 <?php
-include "Model/CartModel.php";
-class CartController extends Controller
+include "models/CartModel.php";
+class CheckoutController extends Controller
 {
+    //ke thua class CartModel
     use CartModel;
-    //hàm tạo giỏ hàng
-
+    //ham tao
+    public function __construct()
+    {
+        //neu gio hang chua ton tai thi khoi tao no
+        if (isset($_SESSION["cart"]) == false)
+            $_SESSION["cart"] = array();
+    }
+    //them san pham vao gio hang
     public function create()
     {
-        if (isset($_SESSION["cart"]) == false) {
-            $_SESSION["cart"] = array();
-        } else {
-            $id = isset($_GET["id"]) ? $_GET["id"] : 0;
-            //goi ham cartAdd de them san pham vao gio hang
-            $this->cartAdd($id);
-            //quay tro lai trang gio hang
-            header("location:index.php?controller=cart");
-        }
+        $id = isset($_GET["id"]) ? $_GET["id"] : 0;
+        //goi ham cartAdd de them san pham vao gio hang
+        $this->cartAdd($id);
+        //quay tro lai trang gio hang
+        header("location:index.php?controller=cart");
     }
-    //hiển thị giỏ hàng
+    //hien thi gio hang
     public function index()
     {
-        $this->loadView("cart.php");
+        $id = isset($_GET["id"]) ? $_GET["id"] : 0;
+        //goi ham tu model de thuc hien
+        $data = $this->modelListOrderDetails($id);
+        //load view
+        $this->loadView("CheckOut.php", ["data" => $data, "id" => $id]);
     }
+
+
     //xoa san pham khoi gio hang
     public function delete()
     {
@@ -61,8 +70,9 @@ class CartController extends Controller
             header("location:index.php?controller=account&action=login");
         else {
             //goi ham cartCheckOut de thanh toan gio hang
-            $id = $this->cartCheckOut();
-            header("location:index.php?controller=checkout&id=$id");
+            $this->cartCheckOut();
+            header("location:index.php?controller=cart");
+            header("location:index.php");
         }
     }
 }

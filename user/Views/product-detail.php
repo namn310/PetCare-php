@@ -49,10 +49,28 @@ $conn = Connection::getInstance();
           <p><strong>Mã sản phẩm :</strong><?php echo $record->idPro ?></p>
           <p><strong>Lượt mua: </strong>324</p>
 
-          <p><strong>Giá bán: </strong> <span class="text-danger"><?php echo $record->giaban ?></span></p>
+
+          <?php
+          if ($record->discount == "") {
+          ?>
+            <p class="card-text text-danger">Giá: <?php echo number_format($record->giaban) ?></p>
+          <?php
+          } else {
+          ?>
+            <span>Giá gốc
+              <i class="card-text text-danger text-decoration-line-through"> <?php echo number_format($record->giaban) ?></i>
+            </span>
+            <p class="card-text text-danger"><?php echo  number_format($record->giaban - ($record->giaban * $record->discount) / 100); ?></p>
+
+          <?php } ?>
+
+
           <!-- Button trigger modal -->
-          <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#modalbuyproduct">
-            Thêm vào giỏ hàng
+          <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger mt-3">
+            <a style="text-decoration:none;color:white" href="index.php?controller=cart&action=create&id=<?php echo $record->idPro ?>">
+              Thêm vào giỏ hàng
+            </a>
+
           </button>
 
         </div>
@@ -78,6 +96,7 @@ $conn = Connection::getInstance();
               Đã thêm sản phẩm vào giỏ hàng !
             </div>
             <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
               <button type="button" class="btn btn-success" data-bs-dismiss="modal">Xác nhận</button>
             </div>
           </div>

@@ -41,14 +41,14 @@ $conn = Connection::getInstance();
       <div class="product-list container d-flex align-items-start flex-wrap" number="">
         <?php
         $query = $conn->query("select * from product where id_danhmuc=$id_danhmuc");
-        foreach ($data = $query->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        foreach ($data = $query->fetchAll() as $row) {
         ?>
-          <div id="product-infor" class="card d-flex flex-column justify-content-around" style="width: 15rem;height:27rem">
+          <div id="product-infor" class="card d-flex flex-column justify-content-around" style="width: 15rem;height:28rem">
             <div>
-              <a id="img_pro" href="index.php?controller=product&action=detail&id=<?php echo $row['idPro'] ?>"> <img class="card-img-top img-fluid p-2" src="../assets/img-add-pro/<?php echo $row['hinhanh'] ?>" alt="Card image cap"></a>
+              <a id="img_pro" href="index.php?controller=product&action=detail&id=<?php echo $row->idPro ?>"> <img class="card-img-top img-fluid p-2" src="../assets/img-add-pro/<?php echo $row->hinhanh ?>" alt="Card image cap"></a>
             </div>
             <div class="card-body" id="card-body">
-              <h5 id="name-product" class="card-title"><?php echo $row['namePro'] ?></h5>
+              <h5 id="name-product" class="card-title"><?php echo $row->namePro ?></h5>
               <span class="rating secondary-font">
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
@@ -56,8 +56,17 @@ $conn = Connection::getInstance();
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
                 5.0</span>
-              <p class="card-text text-danger"><?php echo $row['giaban'] ?></p>
+              <?php
+              if ($row->discount == "") {
+              ?>
+                <p class="card-text text-danger"><?php echo number_format($row->giaban) ?></p>
+              <?php
+              } else {
+              ?>
+                <p class="card-text text-danger text-decoration-line-through"><?php echo number_format($row->giaban) ?></p>
+                <p class="card-text text-danger"><?php echo  number_format($row->giaban - ($row->giaban * $row->discount) / 100); ?></p>
 
+              <?php } ?>
             </div>
           </div>
         <?php

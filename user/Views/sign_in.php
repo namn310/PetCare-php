@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Care</title>
-    <link rel="shortcut icon" type="image/png" href="/../images/logo/PetCARE.png">
+    <link rel="shortcut icon" type="image/png" href="../images/logo/PetCARE.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="../css/user-responsive.css">
     <link rel="stylesheet" href="../css/user1.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 
-</head>
-</head>
 
 <body>
 
@@ -31,10 +30,9 @@
 
 
             <!--------------------------- Left Box ----------------------------->
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                style="background:  #FFE4DA;">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" style="background:  #FFE4DA;">
                 <div class="featured-image mb-3">
-                    <img src="images/logo/PetCARE (2).png" class="img-fluid mt-3" style="width:100%">
+                    <img src="../assets/img/PetCARE.png" class="img-fluid mt-3" style="width:100%">
                 </div>
 
             </div>
@@ -46,30 +44,18 @@
                     <div class="header-text mb-4">
                         <h3 style="font-family: 'Courier New', Courier, monospace;font-weight: 600;">Đăng Ký</h3>
                     </div>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/login-img/google.png"
-                                style="width:20px;" class="me-2"><small>Đăng ký bằng Google</small></button>
-                    </div>
-                    <div class="col-md-9 mx-auto mb-4 text-sm">
-                        <small style="font-family: 'Courier New', Courier, monospace;">Hoặc</small>
-                    </div>
-                    <form id="loginForm">
+
+                    <form id="loginForm" action="index.php?controller=register&action=registerPost">
                         <div class="form-group mb-3">
-                            <input onclick="checkUserSignup()" onkeyup="checkUserSignup()" type="username"
-                                class="form-control form-control-lg bg-light fs-6" id="username"
-                                placeholder="Tên người dùng">
+                            <input onclick="checkUserSignup()" onkeyup="checkUserSignup()" type="username" name="name" class="form-control form-control-lg bg-light fs-6" id="username" placeholder="Tên người dùng">
                             <p class="UsernameError text-danger text-start ps-1"></p>
                         </div>
                         <div class="form-group mb-3">
-                            <input onclick="checkEmailSignup()" onkeyup="checkEmailSignup()" type="email"
-                                class="form-control form-control-lg bg-light fs-6" id="email_signup"
-                                placeholder="Địa chỉ Email">
+                            <input onclick="checkEmailSignup()" onkeyup="checkEmailSignup()" type="email" name="email" class="form-control form-control-lg bg-light fs-6" id="email_signup" placeholder="Địa chỉ Email">
                             <p class="emailError text-danger text-start ps-1"></p>
                         </div>
                         <div class="form-group mb-3">
-                            <input onclick="checkPasswordSignup()" onkeyup="checkPasswordSignup()" type="password"
-                                class="form-control form-control-lg bg-light fs-6" id="password_signup"
-                                placeholder="Mật Khẩu">
+                            <input onclick="checkPasswordSignup()" onkeyup="checkPasswordSignup()" type="password" name="pass" class="form-control form-control-lg bg-light fs-6" id="password_signup" placeholder="Mật Khẩu">
                             <p class="passwordError text-danger text-start ps-1"></p>
                         </div>
 
@@ -90,20 +76,17 @@
         </div>
     </div>
     <script>
-        function isEmail (inputEmail)
-        {
+        function isEmail(inputEmail) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(inputEmail);
         }
-        function validatePassword (inputPassword)
-        {
+
+        function validatePassword(inputPassword) {
             return inputPassword.length > 4;
         }
 
-        $(document).ready(function ()
-        {
-            $('#email_signup').change(function ()
-            {
+        $(document).ready(function() {
+            $('#email_signup').change(function() {
                 var email = $(this).val().trim();
                 // alert(`email = ${JSON.stringify(email)}`)
                 if (!isEmail(email)) {
@@ -113,8 +96,7 @@
                     $(".emailError").html("");
                 }
             });
-            $('#password_signup').change(function ()
-            {
+            $('#password_signup').change(function() {
                 var password = $(this).val();
                 if (!validatePassword(password)) {
                     $(".passwordError").html("Mật khẩu phải có ít nhất 8 ký tự, có ít nhất 1 chữ thường và 1 chữ in");
@@ -122,8 +104,7 @@
                     $(".passwordError").html("");
                 }
             });
-            $('#username').change(function ()
-            {
+            $('#username').change(function() {
                 var password = $(this).val();
                 if (!validatePassword(password)) {
                     $(".UsernameError").html("Tên người dùng không hợp lệ ");

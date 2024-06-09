@@ -57,6 +57,7 @@ $this->layoutPath = "Layout.php";
                                 <th>Tình trạng</th>
                                 <th>Giá tiền</th>
                                 <th>Giá vốn</th>
+                                <th>Giảm giá</th>
                                 <th>Danh mục</th>
                                 <th>Chức năng</th>
                             </tr>
@@ -74,6 +75,7 @@ $this->layoutPath = "Layout.php";
                                     <td><span class="badge bg-success"><?php echo $row->tinhtrang ?></span></td>
                                     <td><?php echo $row->giaban ?></td>
                                     <td><?php echo $row->giavon ?></td>
+                                    <td><?php echo $row->discount ?></td>
                                     <td><?php echo $row->danhmuc ?></td>
                                     <td class="table-td-center">
                                         <button class="btn btn-danger btn-sm trash" data-bs-toggle="modal" data-bs-target="#delete-product" type="button" title="Xóa">

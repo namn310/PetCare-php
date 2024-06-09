@@ -1,9 +1,10 @@
 <?php
 //load file model
 
-
+include "Model/HomeModel.php";
 class HomeController extends Controller
 {
+    use HomeModel;
     public function __construct()
     {
     }

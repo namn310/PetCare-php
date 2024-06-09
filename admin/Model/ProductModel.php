@@ -42,6 +42,7 @@ trait ProductModel
         $product_giaban = $_POST['giabanpro'];
         $product_giavon = $_POST['giabanpro'];
         $product_category = $_POST['danhmucAddpro'];
+        $discount = $_POST['discount'];
         $descrip = $_POST['mota'];
         foreach ($row = $danhmuc->fetchAll() as $a) {
             if ($a['tendanhmuc'] == $product_category) {
@@ -58,7 +59,7 @@ trait ProductModel
         $dateAdd = date("d-m-y");
         //$addproduct = "insert into product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,hinhanh=:_hinhanh,timeadd=:_timeadd ";
         //$query = $conn->prepare($addproduct);
-        $conn->exec('INSERT INTO product(id_danhmuc,namePro, soluong, giaban, giavon, danhmuc, tinhtrang, hinhanh,mota, timeadd) VALUES ("' . $iddanhmuc . '","' . $product_name . '","' . $product_quantity . '","' . $product_giaban . '","' . $product_giavon . '","' . $product_category . '","' . $product_state . '","' . $hinhanh . '","' . $descrip . '","' . $dateAdd . '")');
+        $conn->exec('INSERT INTO product(id_danhmuc,namePro, soluong, giaban, giavon,discount, danhmuc, tinhtrang, hinhanh,mota, timeadd) VALUES ("' . $iddanhmuc . '","' . $product_name . '","' . $product_quantity . '","' . $product_giaban . '","' . $product_giavon . '","' . $discount . '","' . $product_category . '","' . $product_state . '","' . $hinhanh . '","' . $descrip . '","' . $dateAdd . '")');
 
         move_uploaded_file($hinhanh_tmp, "../assets/img-add-pro/" . $hinhanh);
     }
@@ -70,14 +71,15 @@ trait ProductModel
         $product_quantity = $_POST['countpro'];
         $product_giaban = $_POST['giabanpro'];
         $product_giavon = $_POST['giabanpro'];
+        $discount = $_POST['discount'];
         $product_category = $_POST['danhmucAddpro'];
         $product_state = $_POST['tinhtrangAddpro'];
         $descrip = $_POST['mota'];
         $dateAdd = date("d-m-y");
         //lấy biến connect
         $conn = Connection::getInstance();
-        $updateproduct = $conn->prepare("update product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,mota=:_mota where idPro=:_id");
-        $updateproduct->execute([":_name" => $product_name, ":_soluong" => $product_quantity, ":_giaban" => $product_giaban, ":_giavon" => $product_giavon, ":_danhmuc" => $product_category, ":_tinhtrang" => $product_state, ":_mota" => $descrip, ":_id" => $id]);
+        $updateproduct = $conn->prepare("update product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,discount=:_discount,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,mota=:_mota where idPro=:_id");
+        $updateproduct->execute([":_name" => $product_name, ":_soluong" => $product_quantity, ":_giaban" => $product_giaban, ":_giavon" => $product_giavon, ":_discount" => $discount, ":_danhmuc" => $product_category, ":_tinhtrang" => $product_state, ":_mota" => $descrip, ":_id" => $id]);
 
         //update product
         // $updateproduct = $conn->prepare("UPDATE product SET namePro=$product_name,soluong=$product_quantity,giaban=$product_giaban,giavon=$product_giavon,danhmuc=$product_category,tinhtrang=$product_state where idPro=$id");

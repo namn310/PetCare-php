@@ -46,7 +46,7 @@
                 <div class="container-fluid">
                     <div class="nav-brand ps-5" style="width: 200px;">
                         <img class="img cursor: pointer; w-25" src="../images/logo/PetCARE.png">
-                        <a class="navbar-brand mx-0" href="#" style="color: #F7A98F;">PetCare</a>
+                        <a class="navbar-brand mx-0" href="index.php" style="color: #F7A98F;">PetCare</a>
                     </div>
 
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -66,7 +66,7 @@
                                     <a class="nav-link mx-lg-2 " href="index.php?controller=service">Dịch vụ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mx-lg-2 " href="index.php?controller=product">Sản phẩm</a>
+                                    <a class="nav-link mx-lg-2 " href="index.php?controller=product&action=danhmuc&idDM=4">Sản phẩm</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link mx-lg-2 " href="index.php?controller=book">Đặt lịch</a>
@@ -75,28 +75,43 @@
                                     <a class="nav-link mx-lg-2 " href="index.php?controller=contact">Liên hệ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mx-lg-2 active" href="index.php?controller=cart">Giỏ hàng</a>
+                                    <a class="nav-link mx-lg-2" href="index.php?controller=cart">Giỏ hàng</a>
                                 </li>
                         </div>
                     </div>
                     <button class="btn text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <a class="nav-item dropdown " href="#">
-                        <a class=" login-button dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user"></i>
+                    <?php
+                    if (isset($_SESSION['customer_email']) == false) {
+                    ?>
+
+                        <a style="text-decoration:none;color:black" class="me-2 ms-2" href="index.php?controller=account">Đăng Nhập</a><span>/</span>
+                        <a style="text-decoration:none;color:black" class="me-2 ms-2" href="index.php?controller=account&action=logOut">Đăng Xuất</a>
+                    <?php
+                    } else {
+
+                    ?>
+
+
+                        <a class="nav-item dropdown " href="#">
+                            <a class=" login-button dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                            <ul class="dropdown-menu" style="left: 1280px;top: 55px;">
+                                <li><a class="dropdown-item" href="index.php?controller=user"><i class="fa-regular fa-user text-primary pe-2"></i>Thông tin cá nhân</a></li>
+
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="index.php?controller=account&action=logOut">Đăng Xuất<i class="fa-solid fa-right-from-bracket text-secondary ps-2"></i></a></li>
+                            </ul>
                         </a>
-                        <ul class="dropdown-menu" style="left: 1280px;top: 55px;">
-                            <li><a class="dropdown-item" href="inforUser.html"><i class="fa-regular fa-user text-primary pe-2"></i>Thông tin cá nhân</a></li>
-                            <li><a class="dropdown-item" href="cart.html"><i class="fa-solid fa-cart-shopping text-primary pe-2"></i>Đơn Hàng</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-ticket text-danger pe-2"></i>Voucher của
-                                    tôi</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="login.html">Đăng Xuất<i class="fa-solid fa-right-from-bracket text-secondary ps-2"></i></a></li>
-                        </ul>
-                    </a>
+                    <?php
+                    }
+                    ?>
+
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -122,5 +137,6 @@
     ?>
 
 </body>
+<script href="../js/script.js"></script>
 
 </html>

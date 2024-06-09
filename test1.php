@@ -12,18 +12,27 @@
 
 <body>
     <?php
-    $conn = new PDO("mysql:hostname=localhost;dbname=data", "root", "");
-    if (isset($_POST['submit'])) {
-        $des = $_POST['mota'];
-        $conn->exec('INSERT INTO namn(descrip) VALUE ("' . $des . '") ');
+    $conn = new PDO("mysql:hostname=localhost;dbname=petcaredb", "root", "");
+    if (isset($_POST['s'])) {
+        $pass = $_POST['pass'];
+        $hashed_password = md5($pass);
+        $sql = "SELECT * FROM user WHERE pass_user = :hashed_password";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['hashed_password' => $hashed_password]);
+        $results = $stmt->fetchAll();
+        echo $stmt->rowCount();
+        if ($stmt->rowCount() > 0) {
+            foreach ($results as $a) {
+                echo $a['id_user'];
+                $_SESSION = $a['email_user'];
+                echo $_SESSION;
+            }
+        }
     }
     ?>
-    <form method="post" enctype="multipart/form-data">
-        <textarea id="mota" name="mota" class="form-control"></textarea>
-        <script type="text/javascript">
-            CKEDITOR.replace("mota");
-        </script>
-        <button type="submit" name="submit">Sub</button>
+    <form method="post">
+        <input name="pass">
+        <button type="submit" name="s"> nn</button>
     </form>
 </body>
 <script src="js/ckeditor/ckeditor.js"></script>

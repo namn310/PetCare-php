@@ -23,4 +23,10 @@ class Controller
         else
             echo $this->view;
     }
+    //xac thuc viec dang nhap
+    public function authentication()
+    {
+        if (isset($_SESSION["email"]) == false)
+            header("location:index.php?controller=login");
+    }
 }

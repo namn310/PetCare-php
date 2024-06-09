@@ -13,204 +13,108 @@ $this->layoutPath = "Layout.php";
     <div class="col-lg-12">
 
       <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
 
           <!-- Table with stripped rows -->
-          <table class="table datatable">
+          <table class="table text-center">
             <thead>
               <tr>
                 <th>
                   <b>I</b>D đơn hàng
                 </th>
                 <th>Khách Hàng </th>
-                <th>Đơn hàng</th>
-                <th>Số lượng</th>
-                <th>Tổng tiền</th>
+                <th>Số điện thoại</th>
+                <th>Ngày đặt</th>
                 <th>Tình trạng</th>
                 <th>Tính năng</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>HD1</td>
-                <td>Bùi An Khang</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-primary">Chờ Thanh Toán</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+              <?php
+              foreach ($listRecord as $row) {
+                $customer = $this->modelGetCustomers($row->customer_id);
 
-                </td>
-              </tr>
-              <tr>
-                <td>HD2</td>
-                <td>Hoàng Kim Tấn</td>
-                <td>Dụng cụ cắt móng chó</td>
-                <td>1</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-primary">Chờ Thanh Toán</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+              ?>
+                <tr>
+                  <td><?php echo $row->id ?></td>
+                  <td><?php echo $customer->name;  ?></td>
+                  <td><?php echo $customer->sodienthoai;  ?></td>
+                  <td><?php echo $row->create_at;  ?></td>
+                  <?php
+                  if ($row->status > 0) {
+                  ?>
+                    <td><button class=" btn btn-success">Đã giao hàng</button> </td>
+                  <?php
+                  } else {
+                  ?>
+                    <td><button class="btn btn-danger">Chưa giao hàng</button> </td>
+                  <?php
+                  } ?>
 
-                </td>
-              </tr>
-              <tr>
-                <td>HD3</td>
-                <td>Nguyễn Phương Nam</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                  <td>
+                    <a style="color:white;text-decoration:none"> <button data-bs-toggle="modal" data-bs-target="#deleteOrder" class="btn btn-danger"> <i class="bi bi-trash"></i></button></a>
+                    <button data-bs-toggle="modal" data-bs-target="#delivery" class="btn btn-success"><i class="fa-solid fa-truck"></i></button>
+                    <button class="btn btn-primary"><a style="color:white;text-decoration:none" href="index.php?controller=donhang&action=detail&id=<?php echo $row->id ?>">Xem </a></button>
 
-                </td>
-              </tr>
-              <tr>
-                <td>HD4</td>
-                <td>Bùi An Tấn</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD5</td>
-                <td>Hoàng Kim Nam</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD6</td>
-                <td>Nguyễn Phương Tấn</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD7</td>
-                <td>Trần Văn Tấn</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD8</td>
-                <td>Nguyễn Thị Tấn</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>5</td>
-                <td>500.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD9</td>
-                <td>Bùi An Khang</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD10</td>
-                <td>Bùi An Khang</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD11</td>
-                <td>Bùi An Khang</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-success">Hoàn thành</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
-              <tr>
-                <td>HD12</td>
-                <td>Bùi An Khang</td>
-                <td>Dụng cụ cắt móng mèo</td>
-                <td>2</td>
-                <td>400.000đ</td>
-                <td>
-                  <button class="disabled btn btn-primary">Chờ Thanh Toán</button>
-                </td>
-                <td>
-                  <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              <?php
+              } ?>
 
             </tbody>
           </table>
           <!-- End Table with stripped rows -->
-
+          <ul class="pagination">
+            <li class="page-item disabled"><a href="#" class="page-link">Trang</a></li>
+            <?php for ($i = 1; $i <= $numPage; $i++) { ?>
+              <li class="page-item"><a href="index.php?controller=donhang&page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a></li>
+            <?php } ?>
+          </ul>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+<!-- Button trigger modal -->
 
+<!-- Modal xóa order -->
+<div class="modal fade" id="deleteOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Bạn có chắc chắn muốn xóa đơn hàng này không ?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <a href="index.php?controller=donhang&action=delete&id=<?php echo $row->id ?>"> <button type="button" class="btn btn-primary">Xác nhận</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal giao hàng -->
+
+<div class="modal fade" id="delivery" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Thông báo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5>Xác nhận giao hàng</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <a href="index.php?controller=donhang&action=delivery&id=<?php echo $row->id ?>"> <button type="button" class="btn btn-primary">Xác nhận</button></a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ======= Footer ======= -->
 

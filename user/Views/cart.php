@@ -56,9 +56,8 @@ $this->layoutPath = "LayoutTrangChu.php";
   <form action="index.php?controller=cart&action=update" method="post">
     <div class="table-responsive">
       <h3 class="text-center" style="color:#EA9E1E">Giỏ hàng</h3>
-      <?php
-      echo print_r($_SESSION["cart"]);
-      ?>
+
+
       <table class="table table-bordered align-middle text-center  p-3">
         <thead>
           <th class="image-fluid img">Ảnh sản phẩm</th>
@@ -67,7 +66,7 @@ $this->layoutPath = "LayoutTrangChu.php";
           <th>Giảm giá</th>
           <th class="quantity">Số lượng</th>
           <th class="price">Thành tiền</th>
-          <th>Xóa</th>
+          <th></th>
         </thead>
         <tbody>
           <?php foreach ($_SESSION["cart"] as $product) { ?>
@@ -84,16 +83,29 @@ $this->layoutPath = "LayoutTrangChu.php";
                 <?php echo number_format($product['price']); ?>đ
               </td>
               <td>
-                <?php echo number_format($product['discount']); ?>%
+                <?php echo ($product['discount']); ?>
               </td>
 
               <td class="">
-                <input style="width:30%" type="number" id="quantity" min="1" value="<?php echo $product['number'];  ?>" required="không để trống">
+                <input style="width:30%" type="number" id="quantity" min="1" value="<?php echo $product['number'];  ?>" name="product_<?php echo $product['id'] ?>" required="không để trống">
               </td>
+              <?php
+              if ($product['discount'] !== '') {
+              ?>
+                <td>
+                  <p><b><?php echo number_format($product['number'] * ($product['price'] - ($product['price'] * $product['discount']) / 100)); ?>₫</b></p>
+                </td>
+              <?php
+              } else {
+              ?>
 
-              <td>
-                <p><b><?php echo number_format($product['number'] * ($product['price'] - ($product['price'] * $product['discount']) / 100)); ?>₫</b></p>
-              </td>
+                <td>
+                  <p><b><?php echo number_format($product['number'] * ($product['price'])); ?>₫</b></p>
+                </td>
+              <?php
+              } ?>
+
+
               <td><a class="text-danger" href="index.php?controller=cart&action=delete&id=<?php echo $product['id']; ?>" data-id="2479395"><i class="fa fa-trash"></i></a></td>
             </tr>
           <?php } ?>

@@ -1,5 +1,5 @@
 <?php
-include "models/CartModel.php";
+include "Model/CartModel.php";
 class CheckoutController extends Controller
 {
     //ke thua class CartModel

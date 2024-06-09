@@ -57,7 +57,9 @@ trait CartModel
     {
         $total = 0;
         foreach ($_SESSION['cart'] as $product) {
-            $total += $product['number'] * ($product['price'] - ($product['price'] * $product['discount']) / 100);
+            if ($product['discount'] !== '') {
+                $total += $product['number'] * ($product['price'] - ($product['price'] * $product['discount']) / 100);
+            } else $total += $product['number'] * $product['price'];
         }
         return $total;
     }

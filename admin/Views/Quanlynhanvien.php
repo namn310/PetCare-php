@@ -208,69 +208,32 @@ echo memory_get_peak_usage();
 <!-- ======= Footer ======= -->
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
+    <script type="text/javascript">
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
 
-<!-- Template Main JS File -->
-<script src="/../Project-petcare-php/admin/js/main.js"></script>
-<script src="/../Project-petcare-php/admin/js/chart.js"></script>
-<script type="text/javascript">
-    const toastTrigger = document.getElementById('liveToastBtn')
-    const toastLiveExample = document.getElementById('liveToast')
+        if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
+        }
+    </script>
 
-    if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-        })
-    }
-    var data = {
-        labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
-        datasets: [{
-                label: "Dữ liệu đầu tiên",
-                fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
-                strokeColor: "rgb(255, 212, 59)",
-                pointColor: "rgb(255, 212, 59)",
-                pointStrokeColor: "rgb(255, 212, 59)",
-                pointHighlightFill: "rgb(255, 212, 59)",
-                pointHighlightStroke: "rgb(255, 212, 59)",
-                data: [20, 59, 90, 51, 56, 100]
-            },
-            {
-                label: "Dữ liệu kế tiếp",
-                fillColor: "rgba(9, 109, 239, 0.651)  ",
-                pointColor: "rgb(9, 109, 239)",
-                strokeColor: "rgb(9, 109, 239)",
-                pointStrokeColor: "rgb(9, 109, 239)",
-                pointHighlightFill: "rgb(9, 109, 239)",
-                pointHighlightStroke: "rgb(9, 109, 239)",
-                data: [48, 48, 49, 39, 86, 10]
-            }
-        ]
-    };
-    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-    var lineChart = new Chart(ctxl).Line(data);
-
-    var ctxb = $("#barChartDemo").get(0).getContext("2d");
-    var barChart = new Chart(ctxb).Bar(data);
-</script>
-
-<script>
-    $(document).ready(function() {
-        $("#searchNV").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#table-nv tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    <script>
+        $(document).ready(function() {
+            $("#searchNV").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table-nv tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#searchProduct").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table-product tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
         });
-    });
-</script>
+    </script>

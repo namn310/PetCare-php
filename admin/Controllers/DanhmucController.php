@@ -12,8 +12,8 @@ class DanhmucController extends Controller
     }
     public function create()
     {
-        $action = "index.php?controller=danhmuc&action=createPost";
-        $this->loadView("Adddanhmuc.php", ["action" => $action]);
+
+        $this->loadView("Adddanhmuc.php");
     }
     public function createPost()
     {

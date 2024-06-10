@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,13 +76,29 @@
                                     <a class="nav-link mx-lg-2 " href="index.php?controller=contact">Liên hệ</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link mx-lg-2" href="index.php?controller=cart">Giỏ hàng</a>
+                                    <a class="nav-link mx-lg-2" href="index.php?controller=cart">Giỏ hàng <i class="fa-solid fa-cart-shopping ms-1"></i>
+                                        <?php
+
+                                        $numberProduct = 0;
+                                        if (isset($_SESSION["cart"])) {
+                                            foreach ($_SESSION["cart"] as $product) {
+                                                $numberProduct++;
+                                            }
+
+                                        ?>
+
+
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><?php echo $numberProduct ?></span> <?php } ?>
+
+                                    </a>
                                 </li>
                         </div>
                     </div>
+
                     <button class="btn text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
+
                     <?php
                     if (isset($_SESSION['customer_email']) == false) {
                     ?>
@@ -99,7 +116,9 @@
                                 <i class="fa-solid fa-user"></i>
                             </a>
                             <ul class="dropdown-menu" style="left: 1280px;top: 55px;">
-                                <li><a class="dropdown-item" href="index.php?controller=user"><i class="fa-regular fa-user text-primary pe-2"></i>Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="index.php?controller=user"><i class="fa-regular fa-user text-primary pe-2"></i>Cài đặt</a></li>
+                                <li><a class="dropdown-item" href="index.php?controller=user&action=changepass"><i class="fa-regular fa-user text-primary pe-2"></i>Đổi mật khẩu</a></li>
+
 
 
                                 <li>
@@ -119,9 +138,84 @@
             </nav>
 
         </div>
+        <div>
+            <div class="row my-2" style="overflow-y:hidden">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="collapse mb-1" id="collapseExample">
+                        <div class="input-group flex-nowrap" role=" search">
+                            <input id="search_pro" class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
 
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <?php
+                $conn = Connection::getInstance();
+                $query = $conn->query("select namePro,hinhanh,idPro from product");
+                $result = $query->fetchAll();
 
+                ?>
+
+            </div>
+
+        </div>
+        <div class="d-flex justify-content-center">
+            <div id="list-search-product" class="d-flex text-center mt-1 flex-wrap" style="overflow-y:visible;overflow-x:hidden;max-height:300px;width:400px">
+                <?php
+                foreach ($result as $row) {
+                ?>
+                    <div class="listPro bg-white" style="display:none">
+                        <div style="border-bottom:1px solid black;height:50px;width:400px;padding-left:10px;padding-right:20px " class="d-flex justify-content-start bg-white ">
+                            <a style="text-decoration:none" href="index.php?controller=product&action=detail&id=<?php echo $row->idPro ?>"> <img src="../assets/img-add-pro/<?php echo $row->hinhanh ?>" class="img-fluid" style="max-width:100%;height:100%"></a>
+                            <p id="product-name-search" class="ms-3"> <?php echo $row->namePro ?></p>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
     </div>
+
+    <script>
+        //searchProduct
+        $(document).ready(function() {
+            $("#search_pro").click(function() {
+                $(".listPro").show();
+            })
+            $("#search_pro").on("keyup", function() {
+                var q = $("#search_pro").val();
+                // var product = document.querySelectorAll("#product-name-search");
+                var productName = document.querySelectorAll("#product-name-search");
+                //console.log(productName);
+                productName.forEach((a) => {
+                    $(a).parent().filter(function() {
+                        var b = $(a).text();
+                        $(a).parent().parent().toggle($(a).text().toLowerCase().indexOf(q) > -1)
+                    });
+
+
+                    //console.log(a.parentElement.parentElement);
+                })
+
+                /*productName.forEach((a) => {
+                    $(a).parent().filter(function() {
+                        $(a).parent().toggle($(a).text().toLowerCase().indexOf(q) > -1)
+                    });
+                });*/
+            });
+        });
+    </script>
+    <style>
+        .img_product_search {
+            flex: 1;
+        }
+
+        .name_product_search {
+            flex: 3;
+        }
+    </style>
     <!-- 
 <div class="menu-phone" >
     <div><a href="index1.html">Trang chủ </a></div>

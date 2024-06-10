@@ -9,55 +9,9 @@ $this->layoutPath = "LayoutTrangChu.php";
 </style>
 
 <div class="container-fluid" style="margin-top:150px" style="background-color:#C0C0C0;height:max-height">
-  <!--
-  <div class="container giohang p-5" style="border:1px solid gray;border-radius: 5px;box-shadow: 5px 5px 5px  black;background-color: white">
-    <div class="d-flex justify-content-between">
-      <h3 class="pb-4" style="font-weight:bolder ">Giỏ hàng<span><i class="fa-solid fa-basket-shopping" style="margin-left:20px;color: #ad2810;"></i></span></h3>
-      <p>1 sản phẩm</p>
-    </div>
-    <hr>
-    <div class=" cart-body mt-3 mb-3">
-      <div class="cart-product d-flex justify-content-between align-items-center">
-        <div class="product-intro d-flex">
-          <div class="product-img" style="border-radius:5px">
-            <img style="width:100px;height:100px" src="../images/product/dochoi/dc1.jpg" class="img-float img-thumbnail">
-          </div>
-          <div class="ml-3 product-detail d-flex justify-content-center align-items-center flex-wrap ">
-            <p class="ms-4">Đồ chơi cho pet dạng bóng</p>
-          </div>
-        </div>
-        <div class="cost-product d-flex justify-content-center align-items-center">
-          <div class="soluong">
-            <button onclick="decrease_count()" type="button" id="increase-count" style="border:none;border-radius:5px;width:30px">-</button>
-            <input value="1" id="current_count" style="width:20%;text-align: center;">
-            <button onclick="increase_count()" id="decrease-count" style="border:none;border-radius:5px;width:30px">+</button>
-          </div>
-          <div>
-            <p>Giá tiền : <span class="text-danger" id="giatien">250.000</span><span class="text-danger">đ</span></p>
-          </div>
-
-        </div>
-        <div class="function">
-          <button type="button" class="btn btn-danger">Xóa</button>
-        </div>
-
-      </div>
-      <hr>
-
-
-
-    </div>
-    <p style="text-align: right;">Total Price: <strong><span id="total">250.000</span><span>đ</span></strong></p>
-    <div class="d-flex justify-content-end">
-      <button id="thanhtoan" class="btn btn-success mb-3">Thanh toán</button>
-    </div>
--->
-
   <form action="index.php?controller=cart&action=update" method="post">
     <div class="table-responsive">
-      <h3 class="text-center" style="color:#EA9E1E">Giỏ hàng</h3>
-
-
+      <h3 class="text-center" style="color:#EA9E1E">GIỎ HÀNG</h3>
       <table class="table table-bordered align-middle text-center  p-3">
         <thead>
           <th class="image-fluid img">Ảnh sản phẩm</th>
@@ -98,14 +52,11 @@ $this->layoutPath = "LayoutTrangChu.php";
               <?php
               } else {
               ?>
-
                 <td>
                   <p><b><?php echo number_format($product['number'] * ($product['price'])); ?>₫</b></p>
                 </td>
               <?php
               } ?>
-
-
               <td><a class="text-danger" href="index.php?controller=cart&action=delete&id=<?php echo $product['id']; ?>" data-id="2479395"><i class="fa fa-trash"></i></a></td>
             </tr>
           <?php } ?>

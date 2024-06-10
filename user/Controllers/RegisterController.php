@@ -3,12 +3,14 @@ include "Model/RegisterModel.php";
 class RegisterController extends Controller
 {
     use RegisterModel;
-    
+
     public function index()
     {
         $this->loadView("sign_in.php");
     }
-    public function registerPost(){
+    public function registerPost()
+    {
         $this->modelRegister();
+        header("location:index.php?controller=account");
     }
 }

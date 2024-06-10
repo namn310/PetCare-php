@@ -21,6 +21,7 @@ trait AccountModel
         } else
             header("location:index.php?controller=account&action=login");
     }*/
+    //đăng nhập
     public function LoginModel()
     {
         $email = $_POST["email"];
@@ -35,8 +36,10 @@ trait AccountModel
             //---
             $_SESSION["customer_email"] = $record->email;
             $_SESSION["customer_id"] = $record->id;
+            $_SESSION["pass"] = $record->pass;
             header("location:index.php");
         } else
-            header("location:index.php?controller=account&action=login");
+            echo ('<script>alert("Email hoặc mật khẩu không chính xác !")</script>');
+        header("location:index.php?controller=account&action=login");
     }
 }

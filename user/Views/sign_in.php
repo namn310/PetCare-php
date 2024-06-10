@@ -45,7 +45,7 @@
                         <h3 style="font-family: 'Courier New', Courier, monospace;font-weight: 600;">Đăng Ký</h3>
                     </div>
 
-                    <form id="loginForm" action="index.php?controller=register&action=registerPost">
+                    <form id="loginForm" method="post" action="index.php?controller=register&action=registerPost">
                         <div class="form-group mb-3">
                             <input onclick="checkUserSignup()" onkeyup="checkUserSignup()" type="username" name="name" class="form-control form-control-lg bg-light fs-6" id="username" placeholder="Tên người dùng">
                             <p class="UsernameError text-danger text-start ps-1"></p>
@@ -55,12 +55,20 @@
                             <p class="emailError text-danger text-start ps-1"></p>
                         </div>
                         <div class="form-group mb-3">
+                            <input type="text" onclick="checkCustomerDetailPhone()" onkeyup="checkCustomerDetailPhone()" name="phone" class="form-control form-control-lg bg-light fs-6" id="phone_signup" placeholder="Số điện thoại">
+                            <p class=" text-danger text-start ps-1"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" name="local" class="form-control form-control-lg bg-light fs-6" id="local_signup" placeholder="Địa chỉ">
+                            <p class=" text-danger text-start ps-1"></p>
+                        </div>
+                        <div class="form-group mb-3">
                             <input onclick="checkPasswordSignup()" onkeyup="checkPasswordSignup()" type="password" name="pass" class="form-control form-control-lg bg-light fs-6" id="password_signup" placeholder="Mật Khẩu">
                             <p class="passwordError text-danger text-start ps-1"></p>
                         </div>
 
                         <div class="input-group mb-3">
-                            <button class="btn btn-lg btn-warning w-100 fs-6" type="submit" id="submit">Đăng Ký</button>
+                            <button class="btn btn-lg btn-warning w-100 fs-6" type="submit" name="dangky" id="submit">Đăng Ký</button>
                         </div>
                     </form>
 
@@ -76,6 +84,21 @@
         </div>
     </div>
     <script>
+        function checkCustomerDetailPhone() {
+            var correct_phone =
+                /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
+            var phone = document.getElementById("phone_signup");
+            var phone_val = parseInt(phone.value);
+            if (phone_val == "" || correct_phone.test(phone_val) == false) {
+                phone.classList.add("is-invalid");
+                return false;
+            } else {
+                phone.classList.remove("is-invalid");
+                phone.classList.add("is-valid");
+                return true;
+            }
+        }
+
         function isEmail(inputEmail) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(inputEmail);

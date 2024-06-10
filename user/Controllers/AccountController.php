@@ -16,4 +16,5 @@ class AccountController extends Controller
         unset($_SESSION["customer_email"]);
         header("location:index.php?controller=home");
     }
+    
 }

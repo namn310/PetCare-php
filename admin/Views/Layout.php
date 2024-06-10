@@ -25,6 +25,7 @@
     <!-- Template Main CSS File -->
     <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
     <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
+    <script href="../assets/js/chart.js"></script>
 
 </head>
 
@@ -39,13 +40,13 @@
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
-
+        <!--
         <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Search" title="Enter search keyword">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
-        </div><!-- End Search Bar -->
+        </div> End Search Bar -->
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
@@ -318,5 +319,20 @@
     </div>
 
 </body>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../assets/js/main.js"></script>
 
 </html>

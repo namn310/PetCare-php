@@ -24,7 +24,7 @@ $conn = Connection::getInstance();
         $data->setFetchMode(PDO::FETCH_ASSOC);
         foreach ($row = $data->fetchAll() as $a) {
         ?>
-          <li class="list-group-item"><button class="btn btn-white" style="width:100%"><a href="index.php?controller=product&action=danhmuc&idDM=<?php echo $a['id_danhmuc'] ?>"><?php echo $a['tendanhmuc'] ?></a></button></li>
+          <li class="list-group-item"><a href="index.php?controller=product&action=danhmuc&idDM=<?php echo $a['id_danhmuc'] ?>"> <button class="btn btn-white" style="width:100%"><?php echo $a['tendanhmuc'] ?></button></a></li>
 
         <?php } ?>
       </ul>
@@ -135,9 +135,28 @@ $conn = Connection::getInstance();
     <a href="#"><i class="fa-brands fa-facebook fa-lg me-3" style="color: #ffffff;"></i></a>
     <a href="#"><i class="fa-brands fa-instagram fa-lg me-3" style="color: #ffffff;"></i></a>
     <a href="#"><i class="fa-brands fa-youtube fa-lg me-3" style="color: #ffffff;"></i></a>
+    <button id="click">click</button>
+    <p id="hide">nam</p>
   </div>
 
 </div>
 
 <!--footer end-->
 <script src="js/script.js"></script>
+<script>
+  //searchProduct
+  $(document).ready(function() {
+    $("#nameProductSearch").on("keyup", function() {
+      var q = document
+        .getElementById("nameProductSearch")
+        .value.toLowerCase();
+      var product = document.querySelectorAll("#product-infor");
+      var productName = document.querySelectorAll("#name-product");
+      productName.forEach((a) => {
+        $(a).parent().parent().filter(function() {
+          $(a).parent().parent().toggle($(a).text().toLowerCase().indexOf(q) > -1)
+        });
+      });
+    });
+  });
+</script>

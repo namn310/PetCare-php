@@ -11,29 +11,8 @@
 </head>
 
 <body>
-    <?php
-    $conn = new PDO("mysql:hostname=localhost;dbname=petcaredb", "root", "");
-    if (isset($_POST['s'])) {
-        $pass = $_POST['pass'];
-        $hashed_password = md5($pass);
-        $sql = "SELECT * FROM user WHERE pass_user = :hashed_password";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(['hashed_password' => $hashed_password]);
-        $results = $stmt->fetchAll();
-        echo $stmt->rowCount();
-        if ($stmt->rowCount() > 0) {
-            foreach ($results as $a) {
-                echo $a['id_user'];
-                $_SESSION = $a['email_user'];
-                echo $_SESSION;
-            }
-        }
-    }
-    ?>
-    <form method="post">
-        <input name="pass">
-        <button type="submit" name="s"> nn</button>
-    </form>
+    action="index.php?controller=user&action=update&id=<?php echo $_SESSION['customer_id'] ?>"
+    <?php echo ?>
 </body>
 <script src="js/ckeditor/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>

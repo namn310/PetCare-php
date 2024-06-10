@@ -1,9 +1,10 @@
 <?php
 
-trait DanhmucModel{
+trait DanhmucModel
+{
     public function modelRead()
     {
-       
+
         //lay bien ket noi
         $conn = Connection::getInstance();
         $query = $conn->query("select * from danhmuc order by id_danhmuc ");
@@ -22,15 +23,17 @@ trait DanhmucModel{
         return $query->rowCount();
     }
     //tao danh muc
-    public function modelCreate(){
-        $conn=Connection::getInstance();
-        $name=$_POST['nameDM'];
+    public function modelCreate()
+    {
+        $conn = Connection::getInstance();
+        $name = $_POST['nameDM'];
         $dateAdd = date("d-m-y");
-        $conn->exec("INSERT INTO danhmuc(tendanhmuc,dateadd) VALUES ($name,$dateAdd)");
+        $query = $conn->prepare("INSERT INTO danhmuc values tendanhmuc=:danhmuc,dateadd=:dateadd");
+        $query->execute(["danhmuc" => $name, "dateadd" => $dateAdd]);
     }
-    public function modelDelete($id){
-        $conn=Connection::getInstance();
+    public function modelDelete($id)
+    {
+        $conn = Connection::getInstance();
         $conn->query("DELETE from danhmuc where id_danhmuc=$id");
     }
 }
-?>

@@ -12,7 +12,7 @@ $this->layoutPath = "Layout.php";
     </nav>
 
     <!-- End Page Title -->
-    <form id="AddForm" method="post" class="AddForm row mt-4" action="<? echo $action ?>" enctype="multipart/form-data" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
+    <form id="AddForm" method="post" class="AddForm row mt-4" action="index.php?controller=danhmuc&action=createPost" enctype="multipart/form-data" style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
 
         <div class="form-group col-md-4">
             <label style="font-weight: bolder;" class="control-label">Tên danh mục</label>

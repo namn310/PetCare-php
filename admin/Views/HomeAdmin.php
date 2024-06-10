@@ -10,7 +10,7 @@ include "Model/DonhangModel.php";
   <div class="main-content mt-4 d-flex">
     <div class="main-content-left d-flex flex-wrap">
       <div class="d-flex flex-wrap justify-content-between">
-        <div class="widget d-flex" style="width:250px;height:180px;background-color: #FFFFFF;padding:10px;border-radius:10px;box-shadow: 2px 2px 2px blue">
+        <div class="widget d-flex" style="min-width:200px;min-height:50px;background-color: #FFFFFF;padding:10px;border-radius:10px;box-shadow: 2px 2px 2px blue">
           <div class="widget-icon me-2" style="width:50px">
             <i class="fa-solid fa-clipboard-user fa-2xl"></i>
           </div>
@@ -60,96 +60,7 @@ include "Model/DonhangModel.php";
           </div>
         </div>
       </div>
-      <!--
-      <div class="donhang mt-5 p-3 bg-white" style="border-radius:10px">
-        <h4>Tình trạng đơn hàng</h4>
-        <hr>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>ID đơn hàng</th>
-              <th>Tên khách hàng</th>
-              <th>Tổng tiền</th>
-              <th>Trạng thái</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>AL3947</td>
-              <td>Phạm Thị Ngọc</td>
-              <td>
-                1.770.000 đ
-              </td>
-              <td><span class="badge bg-info">Chờ xử lý</span></td>
-            </tr>
-            <tr>
-              <td>ER3835</td>
-              <td>Nguyễn Thị Mỹ Yến</td>
-              <td>
-                770.000 đ
-              </td>
-              <td><span class="badge bg-warning">Đang vận chuyển</span></td>
-            </tr>
-            <tr>
-              <td>MD0837</td>
-              <td>Triệu Thanh Phú</td>
-              <td>
-                3.400.000 đ
-              </td>
-              <td><span class="badge bg-success">Đã hoàn thành</span></td>
-            </tr>
-            <tr>
-              <td>MT9835</td>
-              <td>Đặng Hoàng Phúc </td>
-              <td>
-                2.650.000 đ
-              </td>
-              <td><span class="badge bg-danger">Đã hủy </span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="newCustomer mt-5 bg-white p-4" style="border-radius:10px">
-        <h4>Khách hàng mới</h4>
-        <hr>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Tên khách hàng</th>
-              <th>Ngày sinh</th>
-              <th>Số điện thoại</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#183</td>
-              <td>Bùi An Khang</td>
-              <td>21/7/1992</td>
-              <td><span class="tag tag-success">0921387221</span></td>
-            </tr>
-            <tr>
-              <td>#219</td>
-              <td>Hoàng Kim Tấn</td>
-              <td>30/4/1975</td>
-              <td><span class="tag tag-warning">0912376352</span></td>
-            </tr>
-            <tr>
-              <td>#627</td>
-              <td>Nguyễn Phương Nam</td>
-              <td>12/3/1999</td>
-              <td><span class="tag tag-primary">0128732665</span></td>
-            </tr>
-            <tr>
-              <td>#175</td>
-              <td>Nguyễn Ngọc Như</td>
-              <td>4/12/20000</td>
-              <td><span class="tag tag-danger">0912376763</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
--->
+
     </div>
     <div class="main-content-right" style="margin-left:20px">
       <img class="img-fluid" src="/../Project-petcare-php/assets/img/bieudo.png">
@@ -157,3 +68,4 @@ include "Model/DonhangModel.php";
     </div>
   </div>
 </div>
+

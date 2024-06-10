@@ -24,7 +24,6 @@ trait DonhangModel
         $conn = Connection::getInstance();
         $conn->query("delete from orders where id=$id ");
         $conn->query("delete from orderdetails where order_id=$id ");
-      
     }
     //ham tinh tong so ban ghi
     public function modelTotal()
@@ -70,8 +69,9 @@ trait DonhangModel
     public function delivery($id)
     {
         //---
-        $conn = Connection::getInstance();
-        $conn->query("update orders set status = 1 where id = $id");
+        //$conn = Connection::getInstance();
+        //$query = $conn->prepare("update orders set status = 1 where id = :_id");
+        //$query->execute([":_id" => $id]);
     }
     //lay danh sach cac san pham trong talbe orderdetails
     public function modelListOrderDetails($id)

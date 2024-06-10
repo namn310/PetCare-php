@@ -11,8 +11,15 @@
 </head>
 
 <body>
-    action="index.php?controller=user&action=update&id=<?php echo $_SESSION['customer_id'] ?>"
-    <?php echo ?>
+    <?php  //$conn = new PDO("chuoi ket noi csdl",username,password);
+    $conn = new PDO("mysql:hostname=localhost;dbname=petcaredb", "root", "");
+    $name='pate';
+    $query=$conn->query("select * from danhmuc where tendanhmuc = $name ");
+    
+    
+    
+    ?>
+
 </body>
 <script src="js/ckeditor/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>

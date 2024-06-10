@@ -53,7 +53,14 @@ $this->layoutPath = "Layout.php";
 
                   <td>
                     <a style="color:white;text-decoration:none"> <button data-bs-toggle="modal" data-bs-target="#deleteOrder" class="btn btn-danger"> <i class="bi bi-trash"></i></button></a>
-                    <button data-bs-toggle="modal" data-bs-target="#delivery" class="btn btn-success"><i class="fa-solid fa-truck"></i></button>
+                    <?php
+                    if ($row->status > 0) {
+                    } else {
+                    ?>
+
+                      <button data-bs-toggle="modal" data-bs-target="#delivery" class="btn btn-success"><i class="fa-solid fa-truck"></i></button>
+                    <?php } ?>
+
                     <button class="btn btn-primary"><a style="color:white;text-decoration:none" href="index.php?controller=donhang&action=detail&id=<?php echo $row->id ?>">Xem </a></button>
 
                   </td>
@@ -78,6 +85,20 @@ $this->layoutPath = "Layout.php";
 </section>
 <!-- Button trigger modal -->
 
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <i class="fa-solid fa-check-double" style="color: #12ca27;"></i>
+      <strong class="me-auto ms-2">Thông báo</strong>
+      <small>Now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Đơn hàng đã được giao !
+    </div>
+  </div>
+</div>
 <!-- Modal xóa order -->
 <div class="modal fade" id="deleteOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -132,3 +153,15 @@ $this->layoutPath = "Layout.php";
 <script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
 <!-- Template Main JS File -->
 <script src="/../Project-petcare-php/admin/js/main.js"></script>
+
+<script>
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+
+  if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+      toastBootstrap.show()
+    })
+  }
+</script>

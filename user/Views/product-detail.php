@@ -66,7 +66,7 @@ $conn = Connection::getInstance();
 
 
           <!-- Button trigger modal -->
-          <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="buy" class="btn btn-danger mt-3">
+          <button type="button" style="width:30% ;margin-left:10px;margin-bottom:20px" id="cartSucess" class="btn btn-danger mt-3">
             <a style="text-decoration:none;color:white" href="index.php?controller=cart&action=create&id=<?php echo $record->idPro ?>">
               Thêm vào giỏ hàng
             </a>
@@ -134,6 +134,30 @@ $conn = Connection::getInstance();
   </div>
 
 </div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="cartSuccess" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+</div>
 
 <!--footer end-->
 <script src="js/script.js"></script>
+<script>
+  const toastTrigger = document.getElementById('liveToastBtn')
+  const toastLiveExample = document.getElementById('liveToast')
+
+  if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+      toastBootstrap.show()
+    })
+  }
+</script>

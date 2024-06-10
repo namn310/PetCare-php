@@ -27,9 +27,12 @@ trait DanhmucModel
     {
         $conn = Connection::getInstance();
         $name = $_POST['nameDM'];
-        $dateAdd = date("d-m-y");
-        $query = $conn->prepare("INSERT INTO danhmuc values tendanhmuc=:danhmuc,dateadd=:dateadd");
-        $query->execute(["danhmuc" => $name, "dateadd" => $dateAdd]);
+        $dateAdd = date('d-m-y');
+        //$query1=$conn->query("SELECT * from danhmuc where tendanhmuc = $name");
+        // $query2=$query1->fetchAll();
+        $query = $conn->prepare("INSERT INTO danhmuc set tendanhmuc=:_danhmuc,dateadd=:_date");
+
+        $query->execute([":_danhmuc" => $name, ":_date" => $dateAdd]);
     }
     public function modelDelete($id)
     {

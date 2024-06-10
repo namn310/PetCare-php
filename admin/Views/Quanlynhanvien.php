@@ -199,41 +199,38 @@ $this->layoutPath = "Layout.php";
         </div>
     </div>
 </div>
-<?php
-echo memory_get_peak_usage();
 
-?>
 
 
 <!-- ======= Footer ======= -->
 
 
 
-    <script type="text/javascript">
-        const toastTrigger = document.getElementById('liveToastBtn')
-        const toastLiveExample = document.getElementById('liveToast')
+<script type="text/javascript">
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
 
-        if (toastTrigger) {
-            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-            toastTrigger.addEventListener('click', () => {
-                toastBootstrap.show()
-            })
-        }
-    </script>
+    if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
+    }
+</script>
 
-    <script>
-        $(document).ready(function() {
-            $("#searchNV").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#table-nv tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-            $("#searchProduct").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#table-product tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
+<script>
+    $(document).ready(function() {
+        $("#searchNV").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#table-nv tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-    </script>
+        $("#searchProduct").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#table-product tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>

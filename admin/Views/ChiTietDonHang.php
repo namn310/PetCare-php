@@ -96,7 +96,13 @@ $this->layoutPath = "Layout.php";
                             <?php echo $row->number ?>
                         </td>
                         <td>
-                            <?php echo number_format(($row->number * $product->giaban - ($product->giaban * ($product->discount / 100)))) ?>
+                            <?php
+                            if ($product->discount > 0) {
+                                echo number_format(($row->number * ($product->giaban - ($product->giaban * ($product->discount / 100)))));
+                            } else {
+                                echo number_format($row->number * $product->giaban);
+                            }
+                            ?>
                         </td>
 
 

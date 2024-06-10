@@ -29,7 +29,10 @@ class DonhangController extends Controller
     public function delivery()
     {
         $id = isset($_GET["id"]) ? $_GET["id"] : 0;
-        $this->delivery($id);
+        //$this->delivery($id);
+        $conn = Connection::getInstance();
+        $query = $conn->prepare("update orders set status = 1 where id = :_id");
+        $query->execute([":_id" => $id]);
         header("Location:index.php?controller=donhang");
     }
 }

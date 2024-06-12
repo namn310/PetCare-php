@@ -6,7 +6,7 @@ $this->layoutPath = "Layout.php";
 <div class="pagetitle">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb" style="font-size: 22px;">
-      <li class="breadcrumb-item"><a href="index.php?controller=product">Quản lý nhân viên</a></li>
+      <li class="breadcrumb-item"><a href="index.php?controller=nhanvien">Quản lý nhân viên</a></li>
       <li class="breadcrumb-item active" aria-current="page">Thêm nhân viên</li>
     </ol>
   </nav>

@@ -21,28 +21,30 @@ $customerId = $_SESSION['customer_id'];
       <form style="width:50%" method="post" class="align-items-center" action="index.php?controller=book&action=create&id=<?php echo $customerId ?>" name=" booking_form">
         <div class="form-group">
           <h6 class="text-center">Thông tin của Boss</h6>
+          <i class="text-danger">Vui lòng điền đầy đủ thông tin !</i>
+          <br>
           <label for="Bossname">Tên của Boss</label>
-          <input type="text" class="form-control bossname" id="Bossname" name="Bossname" placeholder="Nhập tên của boss">
+          <input type="text" class="form-control bossname" id="Bossname" name="Bossname" placeholder="Nhập tên của boss" required>
 
         </div>
         <div class="form-group">
           <label for="Bosstype">Boss là: </label>
-          <input type="text" class="form-control" id="Bosstype" name="Bosstype" placeholder="Chó, mèo ">
+          <input type="text" class="form-control" id="Bosstype" required name="Bosstype" placeholder="Chó, mèo ">
 
         </div>
         <div class="form-group">
           <label for="Bosstype">Tên dịch vụ: </label>
-          <input type="text" class="form-control" id="Bosstype" name="dichvu" placeholder="Tên gói muốn đăng ký ">
+          <input type="text" class="form-control" id="Bosstype" required name="dichvu" placeholder="Tên gói muốn đăng ký ">
 
         </div>
         <div class="form-group">
           <label for="Bosstype">Tên gói: </label>
-          <input type="text" class="form-control" id="Bosstype" name="goi" placeholder="Tên gói muốn đăng ký ">
+          <input type="text" class="form-control" id="Bosstype" required name="goi" placeholder="Tên gói muốn đăng ký ">
 
         </div>
         <div class="form-group">
           <label for="Bossweight">Cân nặng(kg): </label>
-          <input type="text" class="form-control" id="Bossweight" name="weight" placeholder="Điền cân nặng của Boss">
+          <input type="text" class="form-control" id="Bossweight" required name="weight" placeholder="Điền cân nặng của Boss">
         </div>
         <div class="Date">
           <p>Chọn lịch</p>

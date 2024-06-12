@@ -10,14 +10,14 @@ class ProductController extends Controller
         if (!isset($_SESSION['admin_email'])) {
             $this->loadView("pages-login.php");
         } else {
-        //quy dinh so ban gi 1 trang
-        $recordPerPage = 10;
-        //ham celi lam chan;
-        $numPage = ceil($this->modelTotal() / $recordPerPage);
-        //đọc bản ghi sql để xổ dữ liệu vào view
-        $data = $this->modelRead($recordPerPage);
-        $this->loadView("quanlysanpham.php", ["data" => $data, "numPage" => $numPage]);
-    }
+            //quy dinh so ban gi 1 trang
+            $recordPerPage = 10;
+            //ham celi lam chan;
+            $numPage = ceil($this->modelTotal() / $recordPerPage);
+            //đọc bản ghi sql để xổ dữ liệu vào view
+            $data = $this->modelRead($recordPerPage);
+            $this->loadView("quanlysanpham.php", ["data" => $data, "numPage" => $numPage]);
+        }
     }
     public function create()
     {
@@ -46,9 +46,8 @@ class ProductController extends Controller
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
-        $action = "index.php?controller=product&action=changePost&id=$id";
         $record = $this->modelGetRecord($id);
-        $this->loadView("FormChangeProduct.php", ["record" => $record, "action" => $action]);
+        $this->loadView("FormChangeProduct.php", ["record" => $record]);
     }
     public function changePost()
     {

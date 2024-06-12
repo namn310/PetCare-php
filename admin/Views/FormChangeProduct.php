@@ -140,7 +140,7 @@ $this->layoutPath = "Layout.php";
     </nav>
     <div style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
         <!-- End Page Title -->
-        <form method="post" id="AddProForm" action="<?php echo $action ?>" enctype="multipart/form-data" class="row mt-4">
+        <form method="post" id="AddProForm" action="index.php?controller=product&action=changePost&id=<?php echo $record->idPro ?>" enctype="multipart/form-data" class="row mt-4">
 
             <div class="form-group col-md-4">
                 <label style="font-weight: bolder;" class="control-label">Tên sản phẩm</label>

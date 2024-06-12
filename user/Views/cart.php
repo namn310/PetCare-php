@@ -107,12 +107,14 @@ $id = $_SESSION['customer_id'];
 </div>
 <?php
 $conn = Connection::getInstance();
-$query = $conn->query("select * from booking where idCus=$id ");
+$query = $conn->query("select * from booking where idCus=$id order by id desc ");
 $result = $query->fetchAll();
+
 ?>
 <div class="booking mt-5 mb-4 text-center">
   <h3 style="color:#EA9E1E">ĐẶT LỊCH</h3>
-  <i>Nếu bạn muốn sửa thông tin lịch đã đặt thì bấm chỉnh sửa trên bẳng rồi bấm nút sửa để cập nhật lại lịch !</i>
+  <i class="container">Nếu bạn muốn sửa thông tin lịch đã đặt thì bấm sửa để thay đổi lịch hẹn! Sau khi chúng tôi nhận được thông báo đặt lịch nhân viên sẽ liên hệ với bạn. Vui lòng thanh toán với nhân viên để bảo đảm việc đặt lịch !</i>
+  <i>Nếu khách hàng có nhu cầu thay đổi lịch hẹn sau khi lịch hẹn đã được phê duyệt, xin vui lòng liên hệ với chúng tôi qua <b>hotline: 012345678</b> để được hỗ trợ</i>
   <div class="container-fluid">
 
     <table class="table table-bordered align-middle text-center  p-3">
@@ -127,33 +129,48 @@ $result = $query->fetchAll();
       </thead>
 
       <tbody class="booking-detail text-center">
+
         <?php
         foreach ($result as $row) {
+
         ?>
           <tr>
+
             <td>
-              <?php echo $row->namePet ?>
+
+              <input class="form-control" name="Bossname" value=" <?php echo $row->namePet ?>">
+
             </td>
             <td>
-              <?php echo $row->type ?>
+              <input class="form-control" name="Bosstype" value=" <?php echo $row->type ?>">
             </td>
             <td>
-              <?php echo $row->nameService ?>
+              <input class="form-control" name="dichvu" value=" <?php echo $row->nameService ?>">
             </td>
             <td>
-              <?php echo $row->goi ?>
+              <input class="form-control" name="goi" value=" <?php echo $row->goi ?>">
             </td>
             <td>
-              <?php echo $row->weight ?>
+              <input class="form-control" name="weight" value=" <?php echo $row->weight ?>">
             </td>
             <td>
-              <?php echo $row->dateBook ?>
+              <input class="form-control" name="date" value=" <?php echo $row->dateBook ?>">
             </td>
             <td class="text-center d-flex flex-wrap justify-content-around">
-              <a name="changeBook" href="index.php?controller=cart&action=changeBook&id=<?php echo $row->id ?>" style="text-decoration:none"> <button class="btn btn-primary">Sửa</button>
-                <a href="index.php?controller=cart&action=delete&id=<?php echo $row->id ?>" style="text-decoration:none"> <button class="btn btn-danger ms-2" name="deleteBook">Xóa</button></a>
+              <?php
+              if ($row->tinhtrangBook == 1) {
+              ?>
+            <th><button class="btn btn-success">Đã duyệt</button></th>
+          <?php
+              } else { ?>
+            <a name="changeBook" href="index.php?controller=book&action=change&id=<?php echo $row->id ?>" class="changeBook" style="text-decoration:none"> <button type="submit" class="btn btn-primary">Sửa</button>
+              <a class="mt-2" href="index.php?controller=book&action=delete&id=<?php echo $row->id ?>" style="text-decoration:none"> <button class="btn btn-danger ms-1" name="deleteBook">Xóa</button></a>
+            <?php } ?>
+
             </td>
+
           </tr>
+
         <?php
         } ?>
       </tbody>
@@ -163,48 +180,58 @@ $result = $query->fetchAll();
   </div>
 
 </div>
-<div class="form-changeBook d-flex justify-content-center align-items-center">
+<script>
+  $(document).ready(function() {
+    $(".formChangeBook").hide();
+    $(".changeBook").click(function() {
+      $(".formChangeBook").toggle();
+    })
+  })
+</script>
+<div class=" formChangeBook">
+  <div class="form-changeBook d-flex justify-content-center align-items-center">
+    <div class=" align-items-center d-flex justify-content-left ps-5">
+      <form style="border:1px solid black;border-radius:5px" method="post" class="align-items-center" action="index.php?controller=book&action=create&id=<?php echo $customerId ?>" name=" booking_form">
+        <div class="form-group pe-5 ps-5">
+          <h6 class="text-center">Thay đổi lịch hẹn</h6>
+          <label for="Bossname">Tên của Boss</label>
+          <input type="text" style="min-width:300px" class="form-control bossname" id="Bossname" name="Bossname" placeholder="Nhập tên của boss">
 
+        </div>
+        <div class="form-group pe-5 ps-5">
+          <label for="Bosstype">Boss là: </label>
+          <input type="text" style="min-width:300px" class="form-control" id="Bosstype" name="Bosstype" placeholder="Chó, mèo ">
 
-  <div class="col-8 align-items-center d-flex justify-content-left ps-5">
-    <form style="width:50%" method="post" class="align-items-center" action="index.php?controller=book&action=create&id=<?php echo $customerId ?>" name=" booking_form">
-      <div class="form-group">
-        <h6 class="text-center">Thay đổi lịch hẹn</h6>
-        <label for="Bossname">Tên của Boss</label>
-        <input type="text" class="form-control bossname" id="Bossname" name="Bossname" placeholder="Nhập tên của boss">
+        </div>
+        <div class="form-group pe-5 ps-5">
+          <label for="Bosstype">Tên dịch vụ: </label>
+          <input type="text" style="min-width:300px" class="form-control" id="Bosstype" name="dichvu" placeholder="Tên gói muốn đăng ký ">
 
-      </div>
-      <div class="form-group">
-        <label for="Bosstype">Boss là: </label>
-        <input type="text" class="form-control" id="Bosstype" name="Bosstype" placeholder="Chó, mèo ">
+        </div>
+        <div class="form-group pe-5 ps-5">
+          <label for="Bosstype">Tên gói: </label>
+          <input type="text" style="min-width:300px" class="form-control" id="Bosstype" name="goi" placeholder="Tên gói muốn đăng ký ">
 
-      </div>
-      <div class="form-group">
-        <label for="Bosstype">Tên dịch vụ: </label>
-        <input type="text" class="form-control" id="Bosstype" name="dichvu" placeholder="Tên gói muốn đăng ký ">
-
-      </div>
-      <div class="form-group">
-        <label for="Bosstype">Tên gói: </label>
-        <input type="text" class="form-control" id="Bosstype" name="goi" placeholder="Tên gói muốn đăng ký ">
-
-      </div>
-      <div class="form-group">
-        <label for="Bossweight">Cân nặng(kg): </label>
-        <input type="text" class="form-control" id="Bossweight" name="weight" placeholder="Điền cân nặng của Boss">
-      </div>
-      <div class="Date">
-        <p>Chọn lịch</p>
-        <input name="date" class="form-control" placeholder="Nhập lịch" required type="text">
-      </div>
-      <div class="align-items-center d-flex justify-content-center">
-        <button type="submit" class="btn btn-danger mt-3 submit_booking mb-2">
-          Đặt lịch
-        </button>
-      </div>
-    </form>
+        </div>
+        <div class="form-group pe-5 ps-5">
+          <label for="Bossweight">Cân nặng(kg): </label>
+          <input type="text" style="min-width:300px" class="form-control" id="Bossweight" name="weight" placeholder="Điền cân nặng của Boss">
+        </div>
+        <div class="form-group pe-5 ps-5">
+          <label>Chọn lịch</label>
+          <input name="date" style="min-width:300px" class="form-control" placeholder="Nhập lịch" required type="text">
+        </div>
+        <div class="align-items-center d-flex justify-content-center">
+          <button type="submit" class="btn btn-danger mt-3 submit_booking mb-2">
+            Thay đổi
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+
+
 <div class="container-fluid text-center">
   <img class="img-fluid" src="../assets/img/618lwjSdN6L._AC_UF1000,1000_QL80_.jpg">
 </div>

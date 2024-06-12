@@ -303,6 +303,11 @@
                     <i class="fa-solid fa-cart-shopping"></i><span>Quản lý đơn hàng</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?controller=book">
+                    <i class="fa-regular fa-address-book"></i><span>Quản lý lịch hẹn</span>
+                </a>
+            </li>
 
             <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=luong">

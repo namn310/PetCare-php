@@ -65,10 +65,5 @@ class CartController extends Controller
             header("location:index.php?controller=checkout&id=$id");
         }
     }
-    public function changeBook()
-    {
-        $id = isset($_GET['id']) ? $_GET['id'] : 0;
-        $this->changeBooking($id);
-        // header("location:index.php?controller=cart");
-    }
+  
 }

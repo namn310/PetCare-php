@@ -66,7 +66,6 @@ trait ProductModel
     //Sửa sản phẩm
     public function modelChange($id)
     {
-        $id = isset($_GET['id']) && is_numeric($_GET['id']) ? $_GET['id'] : 0;
         $product_name = $_POST['namepro'];
         $product_quantity = $_POST['countpro'];
         $product_giaban = $_POST['giabanpro'];
@@ -75,7 +74,7 @@ trait ProductModel
         $product_category = $_POST['danhmucAddpro'];
         $product_state = $_POST['tinhtrangAddpro'];
         $descrip = $_POST['mota'];
-        $dateAdd = date("d-m-y");
+        //$dateAdd = date("d-m-y");
         //lấy biến connect
         $conn = Connection::getInstance();
         $updateproduct = $conn->prepare("update product set namePro=:_name,soluong=:_soluong,giaban=:_giaban,giavon=:_giavon,discount=:_discount,danhmuc=:_danhmuc,tinhtrang=:_tinhtrang,mota=:_mota where idPro=:_id");

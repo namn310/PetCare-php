@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    action="index.php?controller=product&action=changePost&idPro=<?php echo $record->idPro ?>"
     <?php  //$conn = new PDO("chuoi ket noi csdl",username,password);
     $conn = new PDO("mysql:hostname=localhost;dbname=data", "root", "");
     if (isset($_POST['submit'])) {
@@ -21,7 +22,7 @@
         $query->execute([":data" => $dataCre]);
         */
     }
-
+                
     ?>
     <form method="post">
         <input type="datetime-local" name="dateCre">

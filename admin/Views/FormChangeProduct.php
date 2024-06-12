@@ -140,7 +140,7 @@ $this->layoutPath = "Layout.php";
     </nav>
     <div style="background-color: white;padding:20px;border-radius:20px;box-shadow: 2px 2px 2px #FFCC99;">
         <!-- End Page Title -->
-        <form method="post" id="AddProForm" action="index.php?controller=product&action=changePost&id=<?php echo $record->idPro ?>" enctype="multipart/form-data" class="row mt-4">
+        <form method="post" id="AddProForm" action="index.php?controller=product&action=changePost&idPro=<?php echo $record->idPro ?>" enctype="multipart/form-data" class="row mt-4">
 
             <div class="form-group col-md-4">
                 <label style="font-weight: bolder;" class="control-label">Tên sản phẩm</label>
@@ -160,7 +160,7 @@ $this->layoutPath = "Layout.php";
             </div>
             <div class="form-group  col-md-4">
                 <label style="font-weight: bolder;" class="control-label mt-3">Giảm giá(%)</label>
-                <input class="form-control" id="giavonpro" name="discount" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
+                <input class="form-control" id="giavonpro" name="discount" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text">
             </div>
             <div class="form-group col-md-3">
                 <label style="font-weight: bolder;" class="control-label mt-3">Danh mục</label>
@@ -200,7 +200,7 @@ $this->layoutPath = "Layout.php";
             </div>
 
 
-            <button class="btn btn-success mt-4 ms-2" onclick="AddPro()" type="submit" id="buttonAddPro" style="width:10%" name="addproduct">Sửa
+            <button class="btn btn-success mt-4 ms-2" type="submit" id="buttonAddPro" style="width:10%" name="addproduct">Sửa
             </button>
 
         </form>
@@ -216,20 +216,7 @@ $this->layoutPath = "Layout.php";
 <!-- ======= Footer ======= -->
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
-
-<!-- Template Main JS File -->
-<script src="/../Project-petcare-php/assets/js/main.js"></script>
 <script src="../js/ckeditor/ckeditor.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>
 <style>

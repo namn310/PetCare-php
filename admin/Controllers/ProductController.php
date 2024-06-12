@@ -34,7 +34,6 @@ class ProductController extends Controller
     //Xóa dữ liệu
     public function delete()
     {
-        //tao biến action đưa vào form
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
@@ -51,7 +50,7 @@ class ProductController extends Controller
     }
     public function changePost()
     {
-        $id = isset($_GET['id']) && is_numeric($_GET['id']) ? $_GET['id'] : 0;
+        $id = isset($_GET['idPro']) && is_numeric($_GET['idPro']) ? $_GET['idPro'] : 0;
         $this->modelChange($id);
         header("Location:index.php?controller=product");
     }

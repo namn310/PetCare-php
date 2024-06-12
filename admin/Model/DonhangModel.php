@@ -66,12 +66,12 @@ trait DonhangModel
         //---
     }
     //xac nhan da giao hang
-    public function delivery($id)
+    public function deliveryModel($id)
     {
         //---
-        //$conn = Connection::getInstance();
-        //$query = $conn->prepare("update orders set status = 1 where id = :_id");
-        //$query->execute([":_id" => $id]);
+        $conn = Connection::getInstance();
+         $conn->query("update orders set status = 1 where id = $id");
+        //$query->execute();
     }
     //lay danh sach cac san pham trong talbe orderdetails
     public function modelListOrderDetails($id)

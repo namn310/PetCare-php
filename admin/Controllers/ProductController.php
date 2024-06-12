@@ -7,6 +7,9 @@ class ProductController extends Controller
     //loadview product
     public function index()
     {
+        if (!isset($_SESSION['admin_email'])) {
+            $this->loadView("pages-login.php");
+        } else {
         //quy dinh so ban gi 1 trang
         $recordPerPage = 10;
         //ham celi lam chan;
@@ -14,6 +17,7 @@ class ProductController extends Controller
         //đọc bản ghi sql để xổ dữ liệu vào view
         $data = $this->modelRead($recordPerPage);
         $this->loadView("quanlysanpham.php", ["data" => $data, "numPage" => $numPage]);
+    }
     }
     public function create()
     {

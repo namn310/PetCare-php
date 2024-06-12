@@ -39,7 +39,7 @@ $this->layoutPath = ("LayoutTrangChu.php");
 
 
 <!--footer-->
-<div class="container-fluid d-flex justify-content-around bg-dark mt-3">
+<div class="container-fluid d-flex justify-content-around flex-wrap bg-dark mt-5">
   <div class="footer1 d-flex align-items-center flex-column p-3">
     <h1 class="mb-3 mt-4  text-capitalize" style="color:#F7A98F">PetCare</h1>
     <p class="text-white">Giờ hoạt động: 8AM-10PM</p>

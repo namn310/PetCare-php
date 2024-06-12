@@ -109,7 +109,7 @@ $conn = Connection::getInstance();
 
 
 <!--footer-->
-<div class="container-fluid d-flex justify-content-around bg-dark">
+<div class="container-fluid d-flex justify-content-around flex-wrap bg-dark mt-5">
   <div class="footer1 d-flex align-items-center flex-column p-3">
     <h1 class="mb-3 mt-4  text-capitalize" style="color:#F7A98F">PetCare</h1>
     <p class="text-white">Giờ hoạt động: 8AM-10PM</p>
@@ -134,6 +134,8 @@ $conn = Connection::getInstance();
   </div>
 
 </div>
+
+<!--footer end-->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="cartSuccess" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">

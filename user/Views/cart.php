@@ -1,5 +1,6 @@
 <?php
 $this->layoutPath = "LayoutTrangChu.php";
+$id = $_SESSION['customer_id'];
 ?>
 <style>
   .img {
@@ -101,9 +102,118 @@ $this->layoutPath = "LayoutTrangChu.php";
 
 </div>
 <br>
+<div>
+  <hr>
+</div>
+<?php
+$conn = Connection::getInstance();
+$query = $conn->query("select * from booking where idCus=$id ");
+$result = $query->fetchAll();
+?>
+<div class="booking mt-5 mb-4 text-center">
+  <h3 style="color:#EA9E1E">ĐẶT LỊCH</h3>
+  <i>Nếu bạn muốn sửa thông tin lịch đã đặt thì bấm chỉnh sửa trên bẳng rồi bấm nút sửa để cập nhật lại lịch !</i>
+  <div class="container-fluid">
+
+    <table class="table table-bordered align-middle text-center  p-3">
+      <thead>
+        <th>Tên Boss</th>
+        <th>Loại</th>
+        <th>Tên dịch vụ</th>
+        <th>Tên gói</th>
+        <th>Cân nặng của Boss</th>
+        <th>Lịch đặt</th>
+        <th class="text-center d-flex flex-wrap"></th>
+      </thead>
+
+      <tbody class="booking-detail text-center">
+        <?php
+        foreach ($result as $row) {
+        ?>
+          <tr>
+            <td>
+              <?php echo $row->namePet ?>
+            </td>
+            <td>
+              <?php echo $row->type ?>
+            </td>
+            <td>
+              <?php echo $row->nameService ?>
+            </td>
+            <td>
+              <?php echo $row->goi ?>
+            </td>
+            <td>
+              <?php echo $row->weight ?>
+            </td>
+            <td>
+              <?php echo $row->dateBook ?>
+            </td>
+            <td class="text-center d-flex flex-wrap justify-content-around">
+              <a name="changeBook" href="index.php?controller=cart&action=changeBook&id=<?php echo $row->id ?>" style="text-decoration:none"> <button class="btn btn-primary">Sửa</button>
+                <a href="index.php?controller=cart&action=delete&id=<?php echo $row->id ?>" style="text-decoration:none"> <button class="btn btn-danger ms-2" name="deleteBook">Xóa</button></a>
+            </td>
+          </tr>
+        <?php
+        } ?>
+      </tbody>
+    </table>
+
+
+  </div>
+
+</div>
+<div class="form-changeBook d-flex justify-content-center align-items-center">
+
+
+  <div class="col-8 align-items-center d-flex justify-content-left ps-5">
+    <form style="width:50%" method="post" class="align-items-center" action="index.php?controller=book&action=create&id=<?php echo $customerId ?>" name=" booking_form">
+      <div class="form-group">
+        <h6 class="text-center">Thay đổi lịch hẹn</h6>
+        <label for="Bossname">Tên của Boss</label>
+        <input type="text" class="form-control bossname" id="Bossname" name="Bossname" placeholder="Nhập tên của boss">
+
+      </div>
+      <div class="form-group">
+        <label for="Bosstype">Boss là: </label>
+        <input type="text" class="form-control" id="Bosstype" name="Bosstype" placeholder="Chó, mèo ">
+
+      </div>
+      <div class="form-group">
+        <label for="Bosstype">Tên dịch vụ: </label>
+        <input type="text" class="form-control" id="Bosstype" name="dichvu" placeholder="Tên gói muốn đăng ký ">
+
+      </div>
+      <div class="form-group">
+        <label for="Bosstype">Tên gói: </label>
+        <input type="text" class="form-control" id="Bosstype" name="goi" placeholder="Tên gói muốn đăng ký ">
+
+      </div>
+      <div class="form-group">
+        <label for="Bossweight">Cân nặng(kg): </label>
+        <input type="text" class="form-control" id="Bossweight" name="weight" placeholder="Điền cân nặng của Boss">
+      </div>
+      <div class="Date">
+        <p>Chọn lịch</p>
+        <input name="date" class="form-control" placeholder="Nhập lịch" required type="text">
+      </div>
+      <div class="align-items-center d-flex justify-content-center">
+        <button type="submit" class="btn btn-danger mt-3 submit_booking mb-2">
+          Đặt lịch
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 <div class="container-fluid text-center">
   <img class="img-fluid" src="../assets/img/618lwjSdN6L._AC_UF1000,1000_QL80_.jpg">
 </div>
+<style>
+  .booking-detail input {
+    border: none;
+
+  }
+</style>
 <!--
 <div id="pay-form" style="display:none">
   <div class="container mt-4 d-flex flex-column justify-content-center" id="pay-form">
@@ -187,7 +297,7 @@ $this->layoutPath = "LayoutTrangChu.php";
 </div>
 
 footer-->
-<div class="container-fluid d-flex justify-content-around bg-dark" style="">
+<div class="container-fluid d-flex justify-content-around flex-wrap bg-dark mt-5">
   <div class="footer1 d-flex align-items-center flex-column p-3">
     <h1 class="mb-3 mt-4  text-capitalize" style="color:#F7A98F">PetCare</h1>
     <p class="text-white">Giờ hoạt động: 8AM-10PM</p>

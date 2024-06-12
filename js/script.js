@@ -107,8 +107,7 @@ function checkweightBookingForm() {
 function completeBooking() {
 	if (
 		checknameBookingForm() == true &&
-		checktypeBookingForm() == true &&
-		checkweightBookingForm() == true
+		checktypeBookingForm() == true
 	) {
 		alert(
 			"Đặt lịch thành công! Bạn có thể kiểm tra lại thông tin trong giỏ hàng."

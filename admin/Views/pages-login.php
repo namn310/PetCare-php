@@ -1,3 +1,17 @@
+<?php
+$conn = Connection::getInstance();
+
+//lay bien ket noi csdl
+
+/*chuan bi cau truy van			
+$query = $conn->query("select email,pass from admin where email='$email'");
+if($query->rowCount()>0){
+  $query->fetchAll();
+  $pass=$query->pass;
+}*/
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +21,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Admin-Petcare</title>
-  <link rel="stylesheet" href="\admin/Boostrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../admin/Boostrap/css/bootstrap.css">
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- FontAwesome -->
@@ -22,12 +36,9 @@
   <link href="/../Project-petcare-php/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="/../Project-petcare-php/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="/../Project-petcare-php/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="\admin/Boostrap/css/bootstrap.css">
   <script href="\admin/Boostrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main CSS File -->
-  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
-  <link href="/../Project-petcare-php/assets/css/style.css" rel="stylesheet">
-
+  <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 
 
@@ -42,8 +53,8 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="index.php" class="logo d-flex align-items-center w-auto">
-                  <img src="/../Project-petcare-php/assets/img/PetCARE.png" alt="">
+                <a href="index.php" style="text-decoration: none;" class="logo d-flex align-items-center w-auto">
+                  <img src="../assets/img/PetCARE.png" alt="">
                   <span class="d-none d-lg-block">Admin-Petcare</span>
                 </a>
               </div><!-- End Logo -->
@@ -57,20 +68,20 @@
 
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" method="post" action="index.php?controller=login&action=login">
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Tên đăng nhập</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="email" class="form-control" id="yourUsername">
+                        <div class="invalid-feedback">Please enter your email.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Mật khẩu</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" class="form-control" id="yourPassword">
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
@@ -81,10 +92,10 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Đăng nhập</button>
+                      <button class="btn btn-primary w-100" name="login" type="submit">Đăng nhập</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't you forgot account ? <a href="pages-register.php">Quên mật khẩu</a>
+                      <p class="small mb-0">Don't you forgot account ? <a href="">Quên mật khẩu</a>
                       </p>
                     </div>
                   </form>
@@ -115,7 +126,6 @@
   <script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
   <!-- Template Main JS File -->
-  <script src="/../Project-petcare-php/admin/js/main.js"></script>
 
 </body>
 

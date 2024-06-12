@@ -1,6 +1,9 @@
 <?php
 //load file layout.php
 $this->layoutPath = "Layout.php";
+$conn = Connection::getInstance();
+$query = $conn->query("select * from customers");
+$result = $query->fetchAll();
 ?>
 
 <div class="pagetitle">
@@ -43,97 +46,33 @@ $this->layoutPath = "Layout.php";
                         <input class="form-control" type="text" id="searchCustomer">
                     </div>
 
-                    <table class="table table-hover table-bordered text-center" cellpadding="0" cellspacing="0" border="1" id="sampleTable">
+                    <table class="table table-hover table-responsive table-bordered text-center" cellpadding="0" cellspacing="0" border="1" id="sampleTable">
                         <thead>
                             <tr class="table-primary">
                                 <th width="10"></th>
                                 <th>ID khách hàng</th>
-                                <th width="150">Họ và tên</th>
-                                <th width="300">Địa chỉ</th>
-                                <th>Ngày sinh</th>
-                                <th>Giới tính</th>
+                                <th>Họ và tên</th>
+                                <th>Địa chỉ</th>
+
+
                                 <th>SĐT</th>
                                 <th>Gmail</th>
                             </tr>
                         </thead>
                         <tbody id="table-customer">
-                            <tr>
-                                <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                <td>#CD12837</td>
-                                <td>Hồ Thị Thanh Ngân</td>
-                                <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
-                                <td>12/02/1999</td>
-                                <td>Nữ</td>
-                                <td>0926737168</td>
-                                <td>ngandd1234@gmail.com</td>
+                            <?php
+                            foreach ($result as $row) {
+                            ?>
+                                <tr>
+                                    <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                    <td><?php echo $row->id ?></td>
+                                    <td><?php echo $row->name ?></td>
+                                    <td><?php echo $row->address ?> </td>
+                                    <td><?php echo $row->sodienthoai ?></td>
+                                    <td><?php echo $row->email ?></td>
 
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox" name="check2" value="2"></td>
-                                <td>#SX22837</td>
-                                <td>Trần Khả Ái</td>
-                                <td>6 Nguyễn Lương Bằng, Tân Phú, Quận 7, Hồ Chí Minh</td>
-                                <td>22/12/1999</td>
-                                <td>Nữ</td>
-                                <td>0931342432</td>
-                                <td>ainthh1@gmail.com</td>
-
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox" name="check3" value="3"></td>
-                                <td>#LO2871</td>
-                                <td>Phạm Thu Cúc</td>
-                                <td>Số 3 Hòa Bình, Phường 3, Quận 11, Hồ Chí Minh </td>
-                                <td>02/06/1998</td>
-                                <td>Nữ</td>
-                                <td>0931491997</td>
-                                <td>cucyjg123@gmail.com</td>
-
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox"></td>
-                                <td>#SR28746</td>
-                                <td>Trần Anh Khoa</td>
-                                <td>19 Đường Nguyễn Hữu Thọ, Tân Hưng, Quận 7, Hồ Chí Minh </td>
-                                <td>18/02/1995</td>
-                                <td>Nam</td>
-                                <td>0916706633</td>
-                                <td>khoa343@gmail.com</td>
-
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox"></td>
-                                <td>#KJS276</td>
-                                <td>Nguyễn Thành Nhân</td>
-                                <td>Số 13, Tân Thuận Đông, Quận 7, Hồ Chí Minh </td>
-                                <td>10/03/1996</td>
-                                <td>Nam</td>
-                                <td>0971038066</td>
-                                <td>nhanasfd1@gmail.com</td>
-
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox"></td>
-                                <td>#BS76228</td>
-                                <td>Nguyễn Đặng Trọng Nhân</td>
-                                <td>59C Nguyễn Đình Chiểu, Quận 3, Hồ Chí Minh </td>
-                                <td>23/07/1996</td>
-                                <td>Nam</td>
-                                <td>0846881155</td>
-                                <td>nhanaal12@gmail.com</td>
-
-                            </tr>
-                            <tr>
-                                <td width="10"><input type="checkbox"></td>
-                                <td>#YUI21376</td>
-                                <td>Nguyễn Thị Mai</td>
-                                <td>Đường Số 3, Tân Tạo A, Bình Tân, Hồ Chí Minh</td>
-                                <td>09/12/2000</td>
-                                <td>Nữ </td>
-                                <td>0836333037</td>
-                                <td>mai1234@gmail.com</td>
-                            </tr>
-
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

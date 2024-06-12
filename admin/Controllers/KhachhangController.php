@@ -3,6 +3,10 @@ class KhachhangController extends Controller
 {
     public function index()
     {
-        $this->loadView("Quanlykhachhang.php");
+        if (!isset($_SESSION['admin_email'])) {
+            $this->loadView("pages-login.php");
+        } else {
+            $this->loadView("Quanlykhachhang.php");
+        }
     }
 }

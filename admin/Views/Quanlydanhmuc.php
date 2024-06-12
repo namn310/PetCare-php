@@ -1,6 +1,8 @@
 <?php
 //load file layout.php
 $this->layoutPath = "Layout.php";
+
+
 ?>
 
 <div class="pagetitle">

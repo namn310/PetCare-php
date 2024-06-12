@@ -6,7 +6,11 @@ class NhanvienController extends Controller
     use NhanvienModel;
     public function index()
     {
-        $this->loadView("Quanlynhanvien.php");
+        if (!isset($_SESSION['admin_email'])) {
+            $this->loadView("pages-login.php");
+        } else {
+            $this->loadView("Quanlynhanvien.php");
+        }
     }
     public function create()
     {

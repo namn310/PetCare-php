@@ -143,4 +143,8 @@ trait CartModel
         return $query->fetch();
         //---
     }
+    public function changeBooking()
+    {
+        
+    }
 }

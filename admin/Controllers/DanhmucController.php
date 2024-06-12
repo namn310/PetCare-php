@@ -5,10 +5,14 @@ class DanhmucController extends Controller
     use DanhmucModel;
     public function index()
     {
+        if (!isset($_SESSION['admin_email'])) {
+            $this->loadView("pages-login.php");
+        } else {
 
-        $data = $this->modelRead();
-        //goi view, truyen du lieu ra view
-        $this->loadView("quanlydanhmuc.php", ["data" => $data]);
+            $data = $this->modelRead();
+            //goi view, truyen du lieu ra view
+            $this->loadView("quanlydanhmuc.php", ["data" => $data]);
+        }
     }
     public function create()
     {

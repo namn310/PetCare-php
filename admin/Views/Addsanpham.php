@@ -18,7 +18,7 @@ $this->layoutPath = "Layout.php";
 
     function checkName() {
         var name_correct =
-            /^[A-Za-z\sAÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+$/;
+            /^[A-Za-z0-9\@#$%^&*()\sAÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+$/;
         var name = document.getElementById("namepro");
         var name_val = document.getElementById("namepro").value;
         if (name_val == "" || name_correct.test(name_val) == false) {
@@ -161,7 +161,7 @@ $this->layoutPath = "Layout.php";
             </div>
             <div class="form-group  col-md-4">
                 <label style="font-weight: bolder;" class="control-label mt-3">Giảm giá(%)</label>
-                <input class="form-control" id="giavonpro" name="discount" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text" required>
+                <input class="form-control" id="giavonpro" name="discount" onclick="checkGiaVonPro()" onchange="checkGiaVonPro()" type="text">
             </div>
 
             <div class="form-group col-md-3">

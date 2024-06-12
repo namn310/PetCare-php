@@ -57,198 +57,203 @@
                     </a>
                 </li><!-- End Search Icon-->
 
-                <li class="nav-item dropdown">
 
-                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-bell"></i>
-                        <span class="badge bg-primary badge-number">4</span>
-                    </a><!-- End Notification Icon -->
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-                        <li class="dropdown-header">
-                            Bạn có 4 thông báo mới
-                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                <?php
+                if (!isset($_SESSION["admin_email"])) {
+                ?>
+                    <li><a href="index.php?controller=login">Đăng nhập</a></li>
 
-                        <li class="notification-item">
-                            <i class="bi bi-exclamation-circle text-warning"></i>
-                            <div>
-                                <h4>Quản lí</h4>
-                                <p>Tấn chôm tiền đi bắn bi-a</p>
-                                <p>30 phút trước</p>
-                            </div>
-                        </li>
+                <?php
+                } else { ?>
 
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                    <li class="nav-item dropdown">
 
-                        <li class="notification-item">
-                            <i class="bi bi-x-circle text-danger"></i>
-                            <div>
-                                <h4>Cảnh báo</h4>
-                                <p>Có 4 nhân viên đến muộn hôm nay</p>
-                                <p>1 giờ trước</p>
-                            </div>
-                        </li>
+                        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-bell"></i>
+                            <span class="badge bg-primary badge-number">4</span>
+                        </a><!-- End Notification Icon -->
 
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                            <li class="dropdown-header">
+                                Bạn có 4 thông báo mới
+                                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        <li class="notification-item">
-                            <i class="bi bi-check-circle text-success"></i>
-                            <div>
-                                <h4>Thông báo</h4>
-                                <p>Quyết định sa thải đồng chí Tấn</p>
-                                <p>2 giờ trước</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="notification-item">
-                            <i class="bi bi-info-circle text-primary"></i>
-                            <div>
-                                <h4>Thông báo</h4>
-                                <p>Tấn dẫn các bác sĩ đi trộm chó</p>
-                                <p>4 giờ trước</p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li class="dropdown-footer">
-                            <a href="#">Xem tất cả thông báo</a>
-                        </li>
-
-                    </ul><!-- End Notification Dropdown Items -->
-
-                </li><!-- End Notification Nav -->
-
-                <li class="nav-item dropdown">
-
-                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-chat-left-text"></i>
-                        <span class="badge bg-success badge-number">3</span>
-                    </a><!-- End Messages Icon -->
-                    <style>
-                        .message-item a {
-                            text-decoration: none;
-                        }
-                    </style>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
-                        <li class="dropdown-header">
-                            Bạn có 3 thông báo
-                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
+                            <li class="notification-item">
+                                <i class="bi bi-exclamation-circle text-warning"></i>
                                 <div>
-                                    <h4>Tấn</h4>
-                                    <p>Nay xin nghỉ nhé</p>
+                                    <h4>Quản lí</h4>
+                                    <p>Tấn chôm tiền đi bắn bi-a</p>
+                                    <p>30 phút trước</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li class="notification-item">
+                                <i class="bi bi-x-circle text-danger"></i>
+                                <div>
+                                    <h4>Cảnh báo</h4>
+                                    <p>Có 4 nhân viên đến muộn hôm nay</p>
+                                    <p>1 giờ trước</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li class="notification-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                <div>
+                                    <h4>Thông báo</h4>
+                                    <p>Quyết định sa thải đồng chí Tấn</p>
+                                    <p>2 giờ trước</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li class="notification-item">
+                                <i class="bi bi-info-circle text-primary"></i>
+                                <div>
+                                    <h4>Thông báo</h4>
+                                    <p>Tấn dẫn các bác sĩ đi trộm chó</p>
                                     <p>4 giờ trước</p>
                                 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                            </li>
 
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="/../Project-petcare-php/assets/img/avt2.png" alt="" class="rounded-circle">
-                                <div>
-                                    <h4>Nam</h4>
-                                    <p>Tấn xin cho tôi nghỉ rồi nhé</p>
-                                    <p>6 giờ trước</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="#">Xem tất cả thông báo</a>
+                            </li>
 
-                        <li class="message-item">
-                            <a href="">
-                                <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
-                                <div>
-                                    <h4>Khang</h4>
-                                    <p>Đơn sa thải đồng chí Tấn đến đâu rồi</p>
-                                    <p>8 giờ trước</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        </ul><!-- End Notification Dropdown Items -->
 
-                        <li class="dropdown-footer">
-                            <a href="#">Hiển thị tất cả tin nhắn</a>
-                        </li>
+                    </li><!-- End Notification Nav -->
 
-                    </ul><!-- End Messages Dropdown Items -->
+                    <li class="nav-item dropdown">
 
-                </li><!-- End Messages Nav -->
+                        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-chat-left-text"></i>
+                            <span class="badge bg-success badge-number">3</span>
+                        </a><!-- End Messages Icon -->
+                        <style>
+                            .message-item a {
+                                text-decoration: none;
+                            }
+                        </style>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                            <li class="dropdown-header">
+                                Bạn có 3 thông báo
+                                <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Xem tất cả</span></a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                <li class="nav-item dropdown pe-3">
+                            <li class="message-item">
+                                <a href="#">
+                                    <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
+                                    <div>
+                                        <h4>Tấn</h4>
+                                        <p>Nay xin nghỉ nhé</p>
+                                        <p>4 giờ trước</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="/../Project-petcare-php/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
-                    </a><!-- End Profile Iamge Icon -->
+                            <li class="message-item">
+                                <a href="#">
+                                    <img src="/../Project-petcare-php/assets/img/avt2.png" alt="" class="rounded-circle">
+                                    <div>
+                                        <h4>Nam</h4>
+                                        <p>Tấn xin cho tôi nghỉ rồi nhé</p>
+                                        <p>6 giờ trước</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6>Admin</h6>
+                            <li class="message-item">
+                                <a href="">
+                                    <img src="/../Project-petcare-php/assets/img/avt.jpg" alt="" class="rounded-circle">
+                                    <div>
+                                        <h4>Khang</h4>
+                                        <p>Đơn sa thải đồng chí Tấn đến đâu rồi</p>
+                                        <p>8 giờ trước</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                            <li class="dropdown-footer">
+                                <a href="#">Hiển thị tất cả tin nhắn</a>
+                            </li>
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                                <i class="bi bi-person"></i>
-                                <span>Trang cá nhân</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        </ul><!-- End Messages Dropdown Items -->
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                                <i class="bi bi-gear"></i>
-                                <span>Cài đặt tài khoản</span>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                    </li><!-- End Messages Nav -->
+
+                    <li class="nav-item dropdown pe-3">
+
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                            <img src="/../Project-petcare-php/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                            <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+                        </a><!-- End Profile Iamge Icon -->
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                                <h6>Admin</h6>
+
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="index.php?controller=user">
+                                    <i class="bi bi-gear"></i>
+                                    <span>Cài đặt tài khoản</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
 
 
-                        <li>
-                            <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Đăng xuất</span>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="index.php?controller=login&action=logOut">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Đăng xuất</span>
+                                </a>
+                            </li>
 
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
+                        </ul><!-- End Profile Dropdown Items -->
+                    </li><!-- End Profile Nav -->
+                <?php
+                } ?>
 
             </ul>
         </nav><!-- End Icons Navigation -->
@@ -286,11 +291,12 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=dichvu">
                     <i class="fa-brands fa-servicestack"></i><span>Quản lý dịch vụ</span>
                 </a>
             </li>
+                    -->
 
             <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=donhang">
@@ -298,17 +304,17 @@
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=luong">
                     <i class="fa-solid fa-coins"></i><span>Bảng kê lương</span>
                 </a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="index.php?controller=doanhthu">
                     <i class="fa-solid fa-chart-line"></i><span>Báo cáo doanh thu</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </aside><!-- End Sidebar-->
     <!-- Load view-->
@@ -334,5 +340,6 @@
 
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
+
 
 </html>

@@ -12,13 +12,21 @@
 
 <body>
     <?php  //$conn = new PDO("chuoi ket noi csdl",username,password);
-    $conn = new PDO("mysql:hostname=localhost;dbname=petcaredb", "root", "");
-    $name='pate';
-    $query=$conn->query("select * from danhmuc where tendanhmuc = $name ");
-    
-    
-    
+    $conn = new PDO("mysql:hostname=localhost;dbname=data", "root", "");
+    if (isset($_POST['submit'])) {
+        $dateCre = $_POST['dateCre'];
+        echo $dateCre;
+        /*
+        $query = $conn->prepare("insert into bang value dateCre=:data");
+        $query->execute([":data" => $dataCre]);
+        */
+    }
+
     ?>
+    <form method="post">
+        <input type="datetime-local" name="dateCre">
+        <button type="submit" name="submit">click</button>
+    </form>
 
 </body>
 <script src="js/ckeditor/ckeditor.js"></script>

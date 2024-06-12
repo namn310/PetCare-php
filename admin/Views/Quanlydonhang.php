@@ -10,6 +10,10 @@ $this->layoutPath = "Layout.php";
 
 <section class="section">
   <div class="row">
+    <div class="search mt-4 mb-4 input-group" style="width:50%">
+      <button class="input-group-text btn btn-success"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <input class="form-control" type="text" id="searchOrders">
+    </div>
     <div class="col-lg-12">
 
       <div class="card">
@@ -29,7 +33,8 @@ $this->layoutPath = "Layout.php";
                 <th>Tính năng</th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody id="table-order">
               <?php
               foreach ($listRecord as $row) {
                 $customer = $this->modelGetCustomers($row->customer_id);
@@ -58,7 +63,7 @@ $this->layoutPath = "Layout.php";
                     } else {
                     ?>
 
-                      <button data-bs-toggle="modal" data-bs-target="#delivery" class="btn btn-success"><i class="fa-solid fa-truck"></i></button>
+                      <a href="index.php?controller=donhang&action=delivery&id=<?php echo $row->id ?>"> <button data-bs-toggle="modal" class="btn btn-success"><i class="fa-solid fa-truck"></i></button></a>
                     <?php } ?>
 
                     <button class="btn btn-primary"><a style="color:white;text-decoration:none" href="index.php?controller=donhang&action=detail&id=<?php echo $row->id ?>">Xem </a></button>
@@ -131,7 +136,7 @@ $this->layoutPath = "Layout.php";
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        <a href="index.php?controller=donhang&action=delivery&id=<?php echo $row->id ?>"> <button type="button" class="btn btn-primary">Xác nhận</button></a>
+        <a href="index.php?controller=donhang&action=delivery&id=<?php echo $row->id ?>"> <button type="submit" class="btn btn-primary">Xác nhận</button></a>
       </div>
     </div>
   </div>
@@ -140,19 +145,6 @@ $this->layoutPath = "Layout.php";
 <!-- ======= Footer ======= -->
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="/../Project-petcare-php/assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/chart.js/chart.umd.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/echarts/echarts.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/quill/quill.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/../Project-petcare-php/assets/vendor/php-email-form/validate.js"></script>
-<!-- Template Main JS File -->
-<script src="/../Project-petcare-php/admin/js/main.js"></script>
 
 <script>
   const toastTrigger = document.getElementById('liveToastBtn')
@@ -164,4 +156,14 @@ $this->layoutPath = "Layout.php";
       toastBootstrap.show()
     })
   }
+</script>
+<script>
+  $(document).ready(function() {
+    $("#searchOrders").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#table-order tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
 </script>
